@@ -11,9 +11,13 @@
             Qui potrai gestire i tuoi dei, i loro domini e le loro mitologie.
         </p>
 
-        <a href="" class="btn btn-primary">Gestisci Dei</a>
-        <a href="" class="btn btn-secondary">Gestisci Domini</a>
-        <a href="" class="btn btn-success">Gestisci Mitologie</a>
+        @if(Auth::check())
+            <a href="" class="btn btn-primary">Gestisci Dei</a>
+            <a href="" class="btn btn-secondary">Gestisci Mitologie</a>
+            <a href="" class="btn btn-success">Gestisci Domini</a>
+        @else
+            <a href="{{ route('login') }}" class="btn btn-primary">Accedi</a>
+        @endif
     </div>
 </div>
 @endsection

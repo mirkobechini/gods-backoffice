@@ -64,14 +64,29 @@ Come entità principale ho scelto Dei messa in relazione 1 a molti con Pantheon 
 - [X] Users seed
 
 ### UI 🔄
-- [] partials/Header
+#### Commons 🔄
+- [/] partials/Header
 - [] partials/Footer
-- [] layouts/master
+- [/] layouts/app
 - [] loginPage
 - [X] welcomePage
 - [] signPage
 - [] errorPage
-- [] index (bottone gods, bottone domains, bottone pantheons)
+
+#### Gods 🔄
+- [] index
+- [] show
+- [] create
+- [] edit
+
+#### Domains ⬜
+- [] index
+- [] show
+- [] create
+- [] edit
+
+#### Pantheons ⬜
+- [] index
 - [] show
 - [] create
 - [] edit
