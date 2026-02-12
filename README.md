@@ -50,19 +50,20 @@ Come entità principale ho scelto Dei messa in relazione 1 a molti con Pantheon 
 - [X] Set storage filesystem in .env
 - [X] Set storage symlink
 
-### Database 🔄
+### Database ✅
 - [X] God model & migration
 - [X] Pantheon model & migration
 - [X] Domain model & migration
 - [X] 1xN
 - [X] NxN
 - [X] Pivot table
-- [] Pantheons seed
-- [] Domains seed
-- [] Gods seed
-- [] Users seed
+- [X] Pantheons seed
+- [X] Domains seed
+- [X] Gods seed
+- [X] Pivot seed
+- [X] Users seed
 
-### UI ⬜
+### UI 🔄
 - [] partials/Header
 - [] partials/Footer
 - [] layouts/master
