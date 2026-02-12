@@ -12,7 +12,7 @@
         </p>
 
         @if(Auth::check())
-            <a href="" class="btn btn-primary">Gestisci Dei</a>
+            <a href="{{route('gods.index')}}" class="btn btn-primary">Gestisci Dei</a>
             <a href="" class="btn btn-secondary">Gestisci Mitologie</a>
             <a href="" class="btn btn-success">Gestisci Domini</a>
         @else

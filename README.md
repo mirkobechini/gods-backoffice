@@ -74,7 +74,7 @@ Come entità principale ho scelto Dei messa in relazione 1 a molti con Pantheon 
 - [] errorPage
 
 #### Gods 🔄
-- [] index
+- [X] index
 - [] show
 - [] create
 - [] edit
@@ -91,10 +91,24 @@ Come entità principale ho scelto Dei messa in relazione 1 a molti con Pantheon 
 - [] create
 - [] edit
 
-### Controller ⬜
+### Controller 🔄
+#### Admin 🔄
 - [] admin/GodController (CRUD)
-- [] api/GodController (R)
+- [] admin/DomainController (CRUD)
+- [] admin/PantheonController (CRUD)
 
-### Routes ⬜
-- [] admin/GodController route (web)
+#### Api ⬜
+- [] api/GodController (R)
+- [] api/DomainController (R)
+- [] api/PantheonController (R)
+
+### Routes 🔄
+#### Admin 🔄
+- [X] admin/GodController route (web)
+- [] admin/DomainController route (web)
+- [] admin/PantheonController route (web)
+
+#### Api ⬜
 - [] api/GodController route (api)
+- [] api/DomainController route (api)
+- [] api/PantheonController route (api)
