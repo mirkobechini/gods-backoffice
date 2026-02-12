@@ -17,14 +17,14 @@ Come entità principale ho scelto Dei messa in relazione 1 a molti con Pantheon 
 	title string (es. padre degli dei)
 	image string nullable
 	description text nullable
-	rank  int 1 - 10 power level
+	rank  int 1 - 10 power level default 1
 	pantheon_id fk pantheons
 
 ### Pantheons:
 	name string unique (Olimpo, Aesir, Yamato)
 	region string unique (grecia, giappone, scandinavia)
 	home_base string unique (Monte Olimpo, Asgard, Takamagahara)
-	image
+	image string nullable
 	description text nullable
 
 ### Domains:
@@ -51,16 +51,16 @@ Come entità principale ho scelto Dei messa in relazione 1 a molti con Pantheon 
 - [X] Set storage symlink
 
 ### Database 🔄
-- [] Gods model & migration
-- [] Pantheons model & migration
-- [] Domains model & migration
+- [X] God model & migration
+- [X] Pantheon model & migration
+- [X] Domain model & migration
 - [] 1xN
 - [] NxN
 - [] Pivot table
 - [] Pantheons seed
 - [] Domains seed
 - [] Gods seed
-- [] User seed
+- [] Users seed
 
 ### UI ⬜
 - [] partials/Header
