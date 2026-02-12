@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class God extends Model
 {
-    //
+    public function pantheon(){
+        return $this->belongsTo(Pantheon::class);
+    }
 }

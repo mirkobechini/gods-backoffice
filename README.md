@@ -54,7 +54,7 @@ Come entità principale ho scelto Dei messa in relazione 1 a molti con Pantheon 
 - [X] God model & migration
 - [X] Pantheon model & migration
 - [X] Domain model & migration
-- [] 1xN
+- [X] 1xN
 - [] NxN
 - [] Pivot table
 - [] Pantheons seed
