@@ -4,6 +4,7 @@
 
         <h1>Dei</h1>
         <p>Qui puoi gestire i tuoi dei.</p>
+        <a href="{{ route('gods.create') }}" class="btn btn-success">Crea nuovo dio</a>
         <table class="table">
             <thead>
                 <tr>

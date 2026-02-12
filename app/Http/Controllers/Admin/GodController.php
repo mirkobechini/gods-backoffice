@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Domain;
 use App\Models\God;
+use App\Models\Pantheon;
 use Illuminate\Http\Request;
 
 class GodController extends Controller
@@ -22,7 +24,9 @@ class GodController extends Controller
      */
     public function create()
     {
-        //
+        $pantheons = Pantheon::all();
+        $domains = Domain::all();
+        return view('gods.create', compact("pantheons", "domains"));
     }
 
     /**
@@ -30,7 +34,8 @@ class GodController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        dd($data);
     }
 
     /**
