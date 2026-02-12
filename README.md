@@ -75,7 +75,7 @@ Come entità principale ho scelto Dei messa in relazione 1 a molti con Pantheon 
 
 #### Gods 🔄
 - [X] index
-- [] show
+- [X] show
 - [] create
 - [] edit
 

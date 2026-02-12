@@ -18,7 +18,7 @@ class DomainsTableSeeder extends Seeder
                 "name" => "Guerra",
                 "description" => "Il dominio della guerra rappresenta la sfera di influenza dei dei legati alla guerra, alla battaglia e alla strategia militare. Questi dei sono spesso associati a concetti come la forza, il coraggio, la vittoria e la protezione. I dei della guerra sono spesso invocati dai guerrieri e dai soldati prima di entrare in battaglia, e sono considerati protettori dei combattenti e dei vincitori.",
                 "color" => "#FF0000",
-                "icon" => "fa-solid fa-sword"
+                "icon" => "fa-solid fa-shield-halved"
             ],
             [
                 "name" => "Fulmine",
