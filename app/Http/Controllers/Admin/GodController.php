@@ -95,6 +95,8 @@ class GodController extends Controller
      */
     public function destroy(God $god)
     {
-        //
+
+        $god->delete();
+        return redirect()->route("gods.index");
     }
 }

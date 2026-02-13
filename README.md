@@ -65,7 +65,7 @@ Come entità principale ho scelto Dei messa in relazione 1 a molti con Pantheon 
 
 ### UI 🔄
 #### Commons 🔄
-- [/] partials/Header
+- [X] partials/Header
 - [] partials/Footer
 - [/] layouts/app
 - [] loginPage
@@ -73,14 +73,14 @@ Come entità principale ho scelto Dei messa in relazione 1 a molti con Pantheon 
 - [] signPage
 - [] errorPage
 
-#### Gods 🔄
+#### Gods ✅
 - [X] index
 - [X] show
 - [X] create
 - [X] store
 - [X] edit
 - [X] update
-- [] destroy
+- [X] destroy
 
 #### Domains ⬜
 - [] index
@@ -102,7 +102,7 @@ Come entità principale ho scelto Dei messa in relazione 1 a molti con Pantheon 
 
 ### Controller 🔄
 #### Admin 🔄
-- [] admin/GodController (CRUD)
+- [X] admin/GodController (CRUD)
 - [] admin/DomainController (CRUD)
 - [] admin/PantheonController (CRUD)
 
