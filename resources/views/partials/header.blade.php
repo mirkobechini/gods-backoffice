@@ -22,7 +22,7 @@
                             <a class="nav-link" href="{{route("gods.index")}}">{{ __('Pantheons') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route("gods.index")}}">{{ __('Domains') }}</a>
+                            <a class="nav-link" href="{{route("domains.index")}}">{{ __('Domains') }}</a>
                         </li>
                     </ul>
 

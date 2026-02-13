@@ -82,11 +82,11 @@ Come entità principale ho scelto Dei messa in relazione 1 a molti con Pantheon 
 - [X] update
 - [X] destroy
 
-#### Domains ⬜
-- [] index
-- [] show
-- [] create
-- [] store
+#### Domains 🔄
+- [X] index
+- [X] show
+- [X] create
+- [X] store
 - [] edit
 - [] update
 - [] destroy

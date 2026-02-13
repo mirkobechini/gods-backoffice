@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DomainController;
 use App\Http\Controllers\Admin\GodController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -15,6 +16,9 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource("gods", GodController::class)
+    ->middleware(["auth", "verified"]);
+
+Route::resource("domains", DomainController::class)
     ->middleware(["auth", "verified"]);
 
 require __DIR__.'/auth.php';
