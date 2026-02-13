@@ -13,7 +13,7 @@
 
         @if(Auth::check())
             <a href="{{route('gods.index')}}" class="btn btn-primary">Gestisci Dei</a>
-            <a href="" class="btn btn-secondary">Gestisci Mitologie</a>
+            <a href="{{route('pantheons.index')}}" class="btn btn-secondary">Gestisci Pantheon</a>
             <a href="{{route('domains.index')}}" class="btn btn-success">Gestisci Domini</a>
         @else
             <a href="{{ route('login') }}" class="btn btn-primary">Accedi</a>

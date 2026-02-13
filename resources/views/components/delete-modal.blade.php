@@ -9,8 +9,13 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Sei sicuro di voler eliminare "{{ $object->name }}"? Questa azione non può essere
+                Sei sicuro di voler eliminare "{{ $object->name }}"
+                @if($type === 'pantheon')
+                e tutti i suoi dei associati
+                @endif
+                ? Questa azione non può essere
                 annullata.
+                
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>

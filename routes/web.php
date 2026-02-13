@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DomainController;
 use App\Http\Controllers\Admin\GodController;
+use App\Http\Controllers\Admin\PantheonController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,9 @@ Route::resource("gods", GodController::class)
     ->middleware(["auth", "verified"]);
 
 Route::resource("domains", DomainController::class)
+    ->middleware(["auth", "verified"]);
+
+Route::resource("pantheons", PantheonController::class)
     ->middleware(["auth", "verified"]);
 
 require __DIR__.'/auth.php';
