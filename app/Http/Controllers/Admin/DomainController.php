@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Domain;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DomainController extends Controller
 {
@@ -22,7 +23,7 @@ class DomainController extends Controller
      */
     public function create()
     {
-        return(view("domains.create"));
+        return (view("domains.create"));
     }
 
     /**
@@ -75,6 +76,9 @@ class DomainController extends Controller
      */
     public function destroy(Domain $domain)
     {
+        DB::table("domain_god")
+            ->where("domain_id", $domain->id)
+            ->delete();
         $domain->delete();
         return redirect()->route("domains.index");
     }
