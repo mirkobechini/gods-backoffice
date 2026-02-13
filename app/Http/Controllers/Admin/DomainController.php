@@ -53,7 +53,7 @@ class DomainController extends Controller
      */
     public function edit(Domain $domain)
     {
-        //
+        return view("domains.edit", compact("domain"));
     }
 
     /**
@@ -61,7 +61,13 @@ class DomainController extends Controller
      */
     public function update(Request $request, Domain $domain)
     {
-        //
+        $data = $request->all();
+        $domain->name = $data["name"];
+        $domain->icon = $data["icon"];
+        $domain->color = $data["color"];
+        $domain->description = $data["description"];
+        $domain->update();
+        return redirect()->route("domains.show", $domain);
     }
 
     /**
@@ -69,6 +75,7 @@ class DomainController extends Controller
      */
     public function destroy(Domain $domain)
     {
-        //
+        $domain->delete();
+        return redirect()->route("domains.index");
     }
 }

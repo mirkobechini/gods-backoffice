@@ -50,7 +50,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary py-2 px-4">Salva dio</button>
+                <button type="submit" class="btn btn-primary py-2 px-4">Aggiorna dio</button>
             </div>
         </form>
     </div>

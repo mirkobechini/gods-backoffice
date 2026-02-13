@@ -16,4 +16,5 @@
             </div>
         </div>
     </div>
+    <x-delete-modal type="domain" :object="$domain" />
 @endsection

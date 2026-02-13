@@ -82,14 +82,14 @@ Come entità principale ho scelto Dei messa in relazione 1 a molti con Pantheon 
 - [X] update
 - [X] destroy
 
-#### Domains 🔄
+#### Domains ✅
 - [X] index
 - [X] show
 - [X] create
 - [X] store
-- [] edit
-- [] update
-- [] destroy
+- [X] edit
+- [X] update
+- [X] destroy
 
 #### Pantheons ⬜
 - [] index
@@ -103,7 +103,7 @@ Come entità principale ho scelto Dei messa in relazione 1 a molti con Pantheon 
 ### Controller 🔄
 #### Admin 🔄
 - [X] admin/GodController (CRUD)
-- [] admin/DomainController (CRUD)
+- [X] admin/DomainController (CRUD)
 - [] admin/PantheonController (CRUD)
 
 #### Api ⬜
@@ -114,7 +114,7 @@ Come entità principale ho scelto Dei messa in relazione 1 a molti con Pantheon 
 ### Routes 🔄
 #### Admin 🔄
 - [X] admin/GodController route (web)
-- [] admin/DomainController route (web)
+- [X] admin/DomainController route (web)
 - [] admin/PantheonController route (web)
 
 #### Api ⬜
