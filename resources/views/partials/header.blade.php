@@ -15,6 +15,15 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('/') }}">{{ __('Home') }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route("gods.index") }}">{{ __('Gods') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route("gods.index")}}">{{ __('Pantheons') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route("gods.index")}}">{{ __('Domains') }}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

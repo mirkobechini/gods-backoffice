@@ -35,7 +35,20 @@ class GodController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        dd($data);
+        $newGod = new God();
+        $newGod->name = $data["name"];
+        $newGod->title = $data["title"];
+        $newGod->image = $data["image"];
+        $newGod->description = $data["description"];
+        $newGod->rank = $data["rank"];
+        $newGod->pantheon_id = $data["pantheon_id"];
+        $newGod->save();
+        if($request->has("domains")){
+            $newGod->domains()->sync($data["domains"]);
+        }else{
+            $newGod->domains()->detach();
+        }
+        return redirect()->route("gods.show", $newGod);
     }
 
     /**
@@ -51,7 +64,9 @@ class GodController extends Controller
      */
     public function edit(God $god)
     {
-        //
+        $pantheons = Pantheon::all();
+        $domains = Domain::all();
+        return view('gods.edit', compact("god", "pantheons", "domains"));
     }
 
     /**
@@ -59,7 +74,20 @@ class GodController extends Controller
      */
     public function update(Request $request, God $god)
     {
-        //
+        $data = $request->all();
+        $god->name = $data["name"];
+        $god->title = $data["title"];
+        $god->image = $data["image"];
+        $god->description = $data["description"];
+        $god->rank = $data["rank"];
+        $god->pantheon_id = $data["pantheon_id"];
+        $god->update();
+        if($request->has("domains")){
+            $god->domains()->sync($data["domains"]);
+        }else{
+            $god->domains()->detach();
+        }
+        return redirect()->route("gods.show", $god);
     }
 
     /**

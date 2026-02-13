@@ -76,20 +76,29 @@ Come entità principale ho scelto Dei messa in relazione 1 a molti con Pantheon 
 #### Gods 🔄
 - [X] index
 - [X] show
-- [] create
-- [] edit
+- [X] create
+- [X] store
+- [X] edit
+- [X] update
+- [] destroy
 
 #### Domains ⬜
 - [] index
 - [] show
 - [] create
+- [] store
 - [] edit
+- [] update
+- [] destroy
 
 #### Pantheons ⬜
 - [] index
 - [] show
 - [] create
+- [] store
 - [] edit
+- [] update
+- [] destroy
 
 ### Controller 🔄
 #### Admin 🔄
