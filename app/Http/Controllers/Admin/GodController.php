@@ -19,9 +19,16 @@ class GodController extends Controller
         $sort = $request->query('sort', 'id');
         $order = $request->query('order', 'asc');
         if (!in_array($sort, $orderBy)) $sort = 'id';
-    if (!in_array($order, ['asc', 'desc'])) $order = 'asc';
+        if (!in_array($order, ['asc', 'desc'])) $order = 'asc';
 
-        $gods = God::orderBy($sort, $order)->get();
+        if($sort == "pantheon_id"){
+            $gods = God::with("pantheon")->get()->sortBy(function($god) {
+                return $god->pantheon->name;
+            }, SORT_NATURAL | SORT_FLAG_CASE, $order == "desc");
+        }else{
+
+            $gods = God::orderBy($sort, $order)->get();
+        }
         return view('gods.index', compact("gods", "order", "sort"));
     }
 
