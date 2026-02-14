@@ -1,14 +1,16 @@
 @extends('layouts.app')
 @section('content')
     <div class="container py-4">
+        <a href="{{ route('pantheons.index') }}" class="btn btn-secondary mb-3">Torna alla lista dei pantheon</a>
+
         <div class="card">
             <div class="card-header d-flex align-items-center justify-content-between">
                 <h1>{{ $pantheon->name }}</h1>
                 <div class="">
-                    <a class="btn btn-warning" href="{{route("pantheons.edit", $pantheon)}}"><i class="fa-solid fa-pencil"></i></a>
-                    <button type="button" data-bs-toggle="modal"
-                                data-bs-target="#confirmDeleteModal-{{ $pantheon->id }}"
-                                class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                    <a class="btn btn-warning" href="{{ route('pantheons.edit', $pantheon) }}"><i
+                            class="fa-solid fa-pencil"></i></a>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal-{{ $pantheon->id }}"
+                        class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                 </div>
             </div>
             <div class="card-body">
@@ -24,7 +26,6 @@
                 <p>{{ $pantheon->description }}</p>
             </div>
         </div>
-        <a href="{{ route('pantheons.index') }}" class="btn btn-secondary">Torna alla lista dei pantheon</a>
     </div>
 
     <x-delete-modal type="pantheon" :object="$pantheon" />
