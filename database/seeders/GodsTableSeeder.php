@@ -61,10 +61,26 @@ class GodsTableSeeder extends Seeder
                 "description" => "Susanoo è il dio delle tempeste, del mare e della tempesta nella mitologia giapponese. È una delle principali divinità del pantheon shintoista ed è considerato un dio potente e imprevedibile. Susanoo è spesso rappresentato come un uomo forte e tempestoso, simbolo delle tempeste e del mare. È anche noto per le sue avventure e per essere il fratello di Amaterasu, la dea del sole, con cui ha avuto una relazione complicata, che ha portato a conflitti e riconciliazioni tra i due dei.",
                 "rank" => 7,
                 "pantheon_id" => 3,
+            ],
+            [
+                "name" => "Poseidone",
+                "title" => "Dio del Mare",
+                "image" => "#",
+                "description" => "Poseidone è il dio del mare, dei terremoti e dei cavalli nella mitologia greca. Fratello di Zeus e Ade, governa gli oceani con il suo tridente, simbolo del suo immenso potere. È una divinità temuta e rispettata, capace di scatenare tempeste devastanti o calmare le acque per favorire i naviganti. Nella tradizione greca è spesso rappresentato come un dio maestoso e irascibile, legato profondamente alla forza incontrollabile della natura.",
+                "rank" => 8,
+                "pantheon_id" => 1,
+            ],
+            [
+                "name" => "Iside",
+                "title" => "Dea della Magia e della Fertilità",
+                "image" => "#",
+                "description" => "Iside è la dea della magia, della fertilità e della maternità nella mitologia egizia. È una delle principali divinità del pantheon egizio ed è considerata una dea potente e benevola. Iside è spesso rappresentata come una donna con un trono sulla testa, simbolo del suo ruolo di regina degli dei. È anche nota per essere la madre di Horus, il dio falco, e per essere stata una dea protettrice dei morti e dei defunti nell'aldilà egizio.",
+                "rank" => 8,
+                "pantheon_id" => 4,
             ]
         ];
 
-        foreach ($gods as $god){
+        foreach ($gods as $god) {
             $newGod = new God();
             $newGod->name = $god['name'];
             $newGod->title = $god['title'];

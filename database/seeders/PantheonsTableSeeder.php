@@ -34,7 +34,15 @@ class PantheonsTableSeeder extends Seeder
                 "home_base" => "Takama-ga-hara",
                 "image" => "#",
                 "description" => "Il pantheon giapponese, noto anche come pantheon shintoista, è un insieme di divinità adorate nella religione shintoista del Giappone. Questo pantheon è caratterizzato da una vasta gamma di divinità, ognuna con le proprie caratteristiche, poteri e storie. Le divinità giapponesi sono spesso associate a elementi naturali, come il sole, la luna, le montagne e i fiumi, nonché a concetti come la fertilità, la guerra e la saggezza."
+            ],
+            [
+                "name" => "Egitto",
+                "region" => "Egitto",
+                "home_base" => "Nilo",
+                "image" => "#",
+                "description" => "Il pantheon egizio è uno dei più antichi e complessi nella storia della mitologia. È composto da una vasta gamma di divinità, ognuna con le proprie caratteristiche, poteri e storie. Il pantheon egizio è noto per la sua ricchezza e varietà, con divinità che rappresentano vari aspetti della vita umana, della natura e dell'aldilà."
             ]
+            
         ];
 
         foreach ($pantheons as $pantheon){
