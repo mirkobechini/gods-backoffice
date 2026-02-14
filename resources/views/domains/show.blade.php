@@ -30,7 +30,7 @@
                 <h2 class="">Dei</h2>
             </div>
         </div>
-        <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-4">
+        <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-4 g-2">
             @foreach ($domain->gods as $god)
                 <div class="col">
                     <x-gods-visual-card :god="$god" />
