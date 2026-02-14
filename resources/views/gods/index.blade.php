@@ -50,9 +50,19 @@
                 </thead>
                 <tbody>
                     @foreach ($gods as $god)
+                    
+                    @php
+                     $imagePath ="storage/gods-thumb/";
+                     if(!file_exists(public_path($imagePath . $god->image)) || !is_file(public_path($imagePath . $god->image))){
+                        $god->image = 'default.png';
+                     }
+                     $imagePath . $god->image;
+                    @endphp
+
+
                         <tr>
                             <td>{{ $god->name }}</td>
-                            <td><img src="{{ $god->image }}" alt="{{ $god->name }}" width="50"></td>
+                            <td><img src="{{ asset($imagePath . $god->image) }}" alt="{{ $god->name }}" width="50"></td>
                             <td>{{ $god->pantheon->name }}</td>
                             <td class="text-nowrap">
                                 <a href="{{ route('gods.show', $god->id) }}" class="btn btn-primary">Visualizza dio</a>

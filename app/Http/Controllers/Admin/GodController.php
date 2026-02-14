@@ -7,6 +7,7 @@ use App\Models\Domain;
 use App\Models\God;
 use App\Models\Pantheon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class GodController extends Controller
 {
@@ -51,10 +52,19 @@ class GodController extends Controller
         $newGod = new God();
         $newGod->name = $data["name"];
         $newGod->title = $data["title"];
-        $newGod->image = $data["image"];
         $newGod->description = $data["description"];
         $newGod->rank = $data["rank"];
         $newGod->pantheon_id = $data["pantheon_id"];
+
+
+        //controllo x immagine
+        if(array_key_exists("image", $data)){
+            $path = Storage::putFile('gods-thumb', $data["image"]);
+            $newGod->image = $path;
+        }else{
+            $newGod->image = "default.png";
+        }
+
         $newGod->save();
         if ($request->has("domains")) {
             $newGod->domains()->sync($data["domains"]);
@@ -90,10 +100,15 @@ class GodController extends Controller
         $data = $request->all();
         $god->name = $data["name"];
         $god->title = $data["title"];
-        $god->image = $data["image"];
+        
         $god->description = $data["description"];
         $god->rank = $data["rank"];
         $god->pantheon_id = $data["pantheon_id"];
+        //controllo x immagine
+        if(array_key_exists("image", $data)){
+            $path = Storage::putFile('gods-thumb', $data["image"]);
+            $god->image = $path;
+        }
         $god->update();
         if ($request->has("domains")) {
             $god->domains()->sync($data["domains"]);

@@ -1,5 +1,12 @@
 @extends('layouts.app')
 @section('content')
+    @php
+        $imagePath = 'storage/gods-thumb/';
+        if (!file_exists(public_path($imagePath . $god->image)) || !is_file(public_path($imagePath . $god->image))) {
+            $god->image = 'default.png';
+        }
+        $imagePath . $god->image;
+    @endphp
     <div class="container py-4">
         <a href="{{ route('gods.index') }}" class="btn btn-secondary mb-3">Torna alla lista dei dei</a>
 
@@ -15,10 +22,11 @@
             <div class="card-body">
                 <div class="row">
                     <div class="card-img-top col">
-                        <img class="my-3 img-fluid" src="{{ $god->image }}" alt="{{ $god->name }}">
+                        <img class="my-3 img-fluid" src="{{ asset($imagePath . $god->image) }}" alt="{{ $god->name }}">
                     </div>
                     <div class="col-9">
-                        <span class="d-block"><strong>Pantheon:</strong><a class="text-decoration-none text-dark" href="{{ route('pantheons.show', $god->pantheon) }}"> {{ $god->pantheon->name }}</a></span>
+                        <span class="d-block"><strong>Pantheon:</strong><a class="text-decoration-none text-dark"
+                                href="{{ route('pantheons.show', $god->pantheon) }}"> {{ $god->pantheon->name }}</a></span>
                         <span class="d-block"><strong>Rango:</strong> {{ $god->rank }}</span>
                         <span class="d-block"><strong>Domini:</strong>
                             @foreach ($god->domains as $domain)

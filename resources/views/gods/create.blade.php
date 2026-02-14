@@ -3,7 +3,7 @@
     <div class="container py-4">
 
         <h1>Crea nuovo dio</h1>
-        <form class="my-4 form-control" action="{{ route('gods.store') }}" method="POST">
+        <form class="my-4 form-control" action="{{ route('gods.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Nome</label>
@@ -14,8 +14,8 @@
                 <input type="text" class="form-control" id="title" name="title" required>
             </div>
             <div class="mb-3">
-                <label for="image" class="form-label">URL Immagine</label>
-                <input type="text" class="form-control" id="image" name="image">
+                <label for="image" class="form-label">Immagine</label>
+                <input type="file" class="form-control" id="image" name="image">
             </div>
             <div class="mb-3">
                 <label for="rank" class="form-label">Rango</label>
