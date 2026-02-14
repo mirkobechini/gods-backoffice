@@ -3,7 +3,7 @@
     <div class="container py-4">
         <div class="card">
             <div class="card-header d-flex align-items-center justify-content-between">
-                <h1>{{ $god->name }}</h1>
+                <h1>{{ $god->name }} - {{ $god->title }}</h1>
                 <div class="">
                     <a class="btn btn-warning" href="{{route("gods.edit", $god)}}"><i class="fa-solid fa-pencil"></i></a>
                     <button type="button" data-bs-toggle="modal"
@@ -17,7 +17,7 @@
                         <img class="my-3 img-fluid" src="{{ $god->image }}" alt="{{ $god->name }}">
                     </div>
                     <div class="col-9">
-                        <span class="d-block"><strong>Titolo:</strong> {{ $god->title }}</span>
+                        <span class="d-block"><strong>Pantheon:</strong> {{ $god->pantheon->name }}</span>
                         <span class="d-block"><strong>Rango:</strong> {{ $god->rank }}</span>
                         <span class="d-block"><strong>Domini:</strong> 
                             @foreach($god->domains as $domain)
