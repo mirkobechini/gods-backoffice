@@ -36,8 +36,29 @@ class DomainGodTableSeeder extends Seeder
             ['domain_id' => 17, 'god_id' => 8],
             ['domain_id' => 9, 'god_id' => 8],
             ['domain_id' => 4, 'god_id' => 8],
+
+            ['domain_id' => 17, 'god_id' => 9],
+            ['domain_id' => 15, 'god_id' => 9],
+
+            ['domain_id' => 1, 'god_id' => 10],
+            ['domain_id' => 11, 'god_id' => 10],
+
+            ['domain_id' => 4, 'god_id' => 11],
+            ['domain_id' => 16, 'god_id' => 11],
+
+            ['domain_id' => 17, 'god_id' => 12],
+            ['domain_id' => 14, 'god_id' => 12],
+
+            ['domain_id' => 5, 'god_id' => 13],
+            ['domain_id' => 8, 'god_id' => 13],
+
+            ['domain_id' => 4, 'god_id' => 14],
+            ['domain_id' => 17, 'god_id' => 14],
+
+            ['domain_id' => 7, 'god_id' => 15],
+            ['domain_id' => 9, 'god_id' => 15],
         ];
-        foreach($domain_god as $dg){
+        foreach ($domain_god as $dg) {
             DB::table('domain_god')->insert([
                 'domain_id' => $dg['domain_id'],
                 'god_id' => $dg['god_id'],

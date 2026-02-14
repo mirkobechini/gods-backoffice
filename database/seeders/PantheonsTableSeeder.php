@@ -41,6 +41,20 @@ class PantheonsTableSeeder extends Seeder
                 "home_base" => "Nilo",
                 "image" => "pantheons-img/egitto.svg",
                 "description" => "Il pantheon egizio è uno dei più antichi e complessi nella storia della mitologia. È composto da una vasta gamma di divinità, ognuna con le proprie caratteristiche, poteri e storie. Il pantheon egizio è noto per la sua ricchezza e varietà, con divinità che rappresentano vari aspetti della vita umana, della natura e dell'aldilà."
+            ],
+            [
+                "name" => "Deva",
+                "region" => "India",
+                "home_base" => "Himalaya",
+                "image" => "pantheons-img/induista.svg",
+                "description" => "Il pantheon induista è uno dei più ricchi e complessi nella storia della mitologia. È composto da una vasta gamma di divinità, ognuna con le proprie caratteristiche, poteri e storie. Il pantheon induista è noto per la sua diversità e varietà, con divinità che rappresentano vari aspetti della vita umana, della natura e dell'aldilà."
+            ],
+            [
+                "name" => "Burocrazia Celeste",
+                "region" => "Cina",
+                "home_base" => "Monte Kunlun",
+                "image" => "pantheons-img/cinese.svg",
+                "description" => "Il pantheon cinese è uno dei più antichi e complessi nella storia della mitologia. È composto da una vasta gamma di divinità, ognuna con le proprie caratteristiche, poteri e storie. Il pantheon cinese è noto per la sua ricchezza e varietà, con divinità che rappresentano vari aspetti della vita umana, della natura e dell'aldilà."
             ]
 
         ];
