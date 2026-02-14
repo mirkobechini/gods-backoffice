@@ -35,7 +35,7 @@
                         <tr>
                             <td>{{ $pantheon->name }}</td>
                             <td><img src="{{ $pantheon->image }}" alt="{{ $pantheon->name }}" width="50"></td>
-                            <td>
+                            <td class="text-nowrap">
                                 <a href="{{ route('pantheons.show', $pantheon->id) }}" class="btn btn-primary">Visualizza
                                     pantheon</a>
                                 <a href="{{ route('pantheons.edit', $pantheon->id) }}" class="btn btn-warning">Modifica</a>

@@ -7,10 +7,10 @@
         <a href="{{ route('gods.create') }}" class="btn btn-success">Crea nuovo dio</a>
         <div class="table-responsive">
 
-            <table class="table table-sm align-middle my-4 table-striped w-auto">
+            <table class="table table-sm align-middle my-4 table-striped ">
                 <thead>
                     <tr>
-                        <th scope="col" class="w-auto text-nowrap">
+                        <th scope="col" class="w-25 text-nowrap">
                             <span>Nome</span>
                             <a class=" ms-2 btn btn-dark rounded-pill px-2 py-0"
                                 href="{{ route(
@@ -45,7 +45,7 @@
                                 @endif
                             </a>
                         </th>
-                        <th scope="col" class="w-50 text-nowrap">Azioni</th>
+                        <th scope="col" class="w-auto text-nowrap">Azioni</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -54,7 +54,7 @@
                             <td>{{ $god->name }}</td>
                             <td><img src="{{ $god->image }}" alt="{{ $god->name }}" width="50"></td>
                             <td>{{ $god->pantheon->name }}</td>
-                            <td>
+                            <td class="text-nowrap">
                                 <a href="{{ route('gods.show', $god->id) }}" class="btn btn-primary">Visualizza dio</a>
                                 <a href="{{ route('gods.edit', $god->id) }}" class="btn btn-warning">Modifica</a>
                                 <button type="button" data-bs-toggle="modal"

@@ -34,7 +34,7 @@
                     <tr >
                         <td>{{ $domain->name }}</td>
                         <td><i class="{{ $domain->icon }}" style="color: {{ ($domain->color == '#FFFFFF') ? '#000000' : $domain->color }};"></i></td>
-                        <td>
+                        <td class="text-nowrap">
                             <a href="{{ route('domains.show', $domain->id) }}" class="btn btn-primary">Visualizza dominio</a>
                             <a href="{{ route('domains.edit', $domain->id) }}" class="btn btn-warning">Modifica</a>
                             <button type="button" data-bs-toggle="modal"
