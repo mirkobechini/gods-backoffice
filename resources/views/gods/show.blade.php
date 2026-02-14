@@ -18,7 +18,7 @@
                         <img class="my-3 img-fluid" src="{{ $god->image }}" alt="{{ $god->name }}">
                     </div>
                     <div class="col-9">
-                        <span class="d-block"><strong>Pantheon:</strong> {{ $god->pantheon->name }}</span>
+                        <span class="d-block"><strong>Pantheon:</strong><a class="text-decoration-none text-dark" href="{{ route('pantheons.show', $god->pantheon) }}"> {{ $god->pantheon->name }}</a></span>
                         <span class="d-block"><strong>Rango:</strong> {{ $god->rank }}</span>
                         <span class="d-block"><strong>Domini:</strong>
                             @foreach ($god->domains as $domain)
