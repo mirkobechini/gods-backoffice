@@ -3,7 +3,7 @@
     <div class="container py-4">
 
         <h1>Crea nuovo pantheon</h1>
-        <form class="my-4 form-control" action="{{ route('pantheons.store') }}" method="POST">
+        <form class="my-4 form-control" action="{{ route('pantheons.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Nome</label>
@@ -19,7 +19,7 @@
             </div>
             <div class="mb-3">
                 <label for="image" class="form-label">Immagine</label>
-                <input type="text" class="form-control" id="image" name="image">
+                <input type="file" class="form-control" id="image" name="image">
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Descrizione</label>

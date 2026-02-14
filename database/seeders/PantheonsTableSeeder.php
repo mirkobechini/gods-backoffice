@@ -18,34 +18,34 @@ class PantheonsTableSeeder extends Seeder
                 "name" => "Olimpo",
                 "region" => "Grecia",
                 "home_base" => "Monte Olimpo",
-                "image" => "#",
+                "image" => "pantheons-img/olimpo.svg",
                 "description" => "Il pantheon greco è uno dei più famosi e influenti nella storia della mitologia. È composto da una vasta gamma di divinità, ognuna con le proprie caratteristiche, poteri e storie. Il pantheon greco è noto per la sua complessità e ricchezza, con divinità che rappresentano vari aspetti della vita umana e della natura."
             ],
             [
                 "name" => "Aesir",
                 "region" => "Nord Europa",
                 "home_base" => "Asgard",
-                "image" => "#",
+                "image" => "pantheons-img/aesir.svg",
                 "description" => "Il pantheon norreno, noto anche come pantheon vichingo, è un insieme di divinità adorate dai popoli germanici del Nord Europa, in particolare dai vichinghi. Questo pantheon è caratterizzato da una vasta gamma di divinità, ognuna con le proprie caratteristiche, poteri e storie. Le divinità norrene sono spesso associate a elementi naturali, guerre, saggezza e magia."
             ],
             [
                 "name" => "Yamato",
                 "region" => "Giappone",
                 "home_base" => "Takama-ga-hara",
-                "image" => "#",
+                "image" => "pantheons-img/yamato.svg",
                 "description" => "Il pantheon giapponese, noto anche come pantheon shintoista, è un insieme di divinità adorate nella religione shintoista del Giappone. Questo pantheon è caratterizzato da una vasta gamma di divinità, ognuna con le proprie caratteristiche, poteri e storie. Le divinità giapponesi sono spesso associate a elementi naturali, come il sole, la luna, le montagne e i fiumi, nonché a concetti come la fertilità, la guerra e la saggezza."
             ],
             [
                 "name" => "Egitto",
                 "region" => "Egitto",
                 "home_base" => "Nilo",
-                "image" => "#",
+                "image" => "pantheons-img/egitto.svg",
                 "description" => "Il pantheon egizio è uno dei più antichi e complessi nella storia della mitologia. È composto da una vasta gamma di divinità, ognuna con le proprie caratteristiche, poteri e storie. Il pantheon egizio è noto per la sua ricchezza e varietà, con divinità che rappresentano vari aspetti della vita umana, della natura e dell'aldilà."
             ]
-            
+
         ];
 
-        foreach ($pantheons as $pantheon){
+        foreach ($pantheons as $pantheon) {
             $newPanteon = new Pantheon();
             $newPanteon->name = $pantheon['name'];
             $newPanteon->region = $pantheon['region'];

@@ -1,5 +1,12 @@
 @extends('layouts.app')
 @section('content')
+    @php
+        $imagePath = 'storage/';
+        if (!file_exists(public_path($imagePath . $pantheon->image)) || !is_file(public_path($imagePath . $pantheon->image))) {
+            $pantheon->image = 'pantheons-img/default.png';
+        }
+        $imagePath . $pantheon->image;
+    @endphp
     <div class="container py-4">
         <div class="row">
             <div class="col">
@@ -20,7 +27,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="card-img-top col">
-                                <img class="my-3 img-fluid" src="{{ $pantheon->image }}" alt="{{ $pantheon->name }}">
+                                <img class="my-3 img-fluid" src="{{ asset($imagePath . $pantheon->image) }}" alt="{{ $pantheon->name }}">
                             </div>
                             <div class="col-9">
                                 <span class="d-block"><strong>Regione:</strong> {{ $pantheon->region }}</span>

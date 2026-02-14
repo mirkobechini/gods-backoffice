@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Pantheon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class PantheonController extends Controller
 {
@@ -40,8 +41,15 @@ class PantheonController extends Controller
         $newPantheon->name = $data["name"];
         $newPantheon->region = $data["region"];
         $newPantheon->home_base = $data["home_base"];
-        $newPantheon->image = $data["image"];
         $newPantheon->description = $data["description"];
+
+        //controllo x immagine
+        if (array_key_exists("image", $data)) {
+            $path = Storage::putFile('pantheons-img', $data['image']);
+        } else {
+            $path = 'pantheons-img/default.svg';
+        }
+        $newPantheon->image = $path;
         $newPantheon->save();
         return redirect()->route("pantheons.show", $newPantheon);
     }
@@ -71,8 +79,14 @@ class PantheonController extends Controller
         $pantheon->name = $data["name"];
         $pantheon->region = $data["region"];
         $pantheon->home_base = $data["home_base"];
-        $pantheon->image = $data["image"];
         $pantheon->description = $data["description"];
+
+        //controllo x immagine
+        if (array_key_exists("image", $data)) {
+            Storage::delete($pantheon->image);
+            $path = Storage::putFile('pantheons-img', $data["image"]);
+            $pantheon->image = $path;
+        }
         $pantheon->update();
         return redirect()->route("pantheons.show", $pantheon);
     }
@@ -85,6 +99,9 @@ class PantheonController extends Controller
         DB::table("gods")
             ->where("pantheon_id", $pantheon->id)
             ->delete();
+        if ($pantheon->image) {
+            Storage::delete($pantheon->image);
+        }
         $pantheon->delete();
         return redirect()->route("pantheons.index");
     }
