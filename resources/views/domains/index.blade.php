@@ -5,10 +5,11 @@
         <h1>Domini</h1>
         <p>Qui puoi gestire i tuoi domini.</p>
         <a href="{{ route('domains.create') }}" class="btn btn-success">Crea nuovo dominio</a>
-        <table class="table">
+        <div class="table-responsive">
+        <table class="table table-sm align-middle my-4 table-striped w-auto">
             <thead>
                 <tr>
-                    <th scope="col">
+                    <th scope="col" class="w-auto text-nowrap">
                         <span>Nome</span>
                         <a class=" ms-2 btn btn-dark rounded-pill px-2 py-0"
                             href="{{ route(
@@ -24,15 +25,15 @@
                             @endif
                         </a>
                     </th>
-                    <th scope="col">Icona</th>
-                    <th scope="col">Azioni</th>
+                    <th scope="col" class="text-nowrap">Icona</th>
+                    <th scope="col" class="w-50 text-nowrap">Azioni</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($domains as $domain)
                     <tr >
                         <td>{{ $domain->name }}</td>
-                        <td class="text-center"><i class="{{ $domain->icon }}" style="color: {{ ($domain->color == '#FFFFFF') ? '#000000' : $domain->color }};"></i></td>
+                        <td><i class="{{ $domain->icon }}" style="color: {{ ($domain->color == '#FFFFFF') ? '#000000' : $domain->color }};"></i></td>
                         <td>
                             <a href="{{ route('domains.show', $domain->id) }}" class="btn btn-primary">Visualizza dominio</a>
                             <a href="{{ route('domains.edit', $domain->id) }}" class="btn btn-warning">Modifica</a>
@@ -46,5 +47,6 @@
                 @endforeach
             </tbody>
         </table>
+        </div>
     </div>
 @endsection
