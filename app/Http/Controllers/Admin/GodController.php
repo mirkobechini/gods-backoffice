@@ -13,10 +13,16 @@ class GodController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $gods = God::all();
-        return view('gods.index', compact("gods"));
+        $orderBy = ["id", "name", "pantheon_id"];
+        $sort = $request->query('sort', 'id');
+        $order = $request->query('order', 'asc');
+        if (!in_array($sort, $orderBy)) $sort = 'id';
+    if (!in_array($order, ['asc', 'desc'])) $order = 'asc';
+
+        $gods = God::orderBy($sort, $order)->get();
+        return view('gods.index', compact("gods", "order", "sort"));
     }
 
     /**
@@ -43,9 +49,9 @@ class GodController extends Controller
         $newGod->rank = $data["rank"];
         $newGod->pantheon_id = $data["pantheon_id"];
         $newGod->save();
-        if($request->has("domains")){
+        if ($request->has("domains")) {
             $newGod->domains()->sync($data["domains"]);
-        }else{
+        } else {
             $newGod->domains()->detach();
         }
         return redirect()->route("gods.show", $newGod);
@@ -82,9 +88,9 @@ class GodController extends Controller
         $god->rank = $data["rank"];
         $god->pantheon_id = $data["pantheon_id"];
         $god->update();
-        if($request->has("domains")){
+        if ($request->has("domains")) {
             $god->domains()->sync($data["domains"]);
-        }else{
+        } else {
             $god->domains()->detach();
         }
         return redirect()->route("gods.show", $god);
