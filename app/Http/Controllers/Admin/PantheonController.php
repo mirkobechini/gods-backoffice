@@ -12,10 +12,14 @@ class PantheonController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $pantheons = Pantheon::all();
-        return view('pantheons.index', compact('pantheons'));
+
+        $order = $request->query('order', 'asc');
+        if (!in_array($order, ['asc', 'desc'])) $order = 'asc';
+
+        $pantheons = Pantheon::orderBy('name', $order)->get();
+        return view('pantheons.index', compact('pantheons', 'order'));
     }
 
     /**
@@ -79,8 +83,8 @@ class PantheonController extends Controller
     public function destroy(Pantheon $pantheon)
     {
         DB::table("gods")
-        ->where("pantheon_id", $pantheon->id)
-        ->delete();
+            ->where("pantheon_id", $pantheon->id)
+            ->delete();
         $pantheon->delete();
         return redirect()->route("pantheons.index");
     }

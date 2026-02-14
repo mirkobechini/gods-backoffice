@@ -8,7 +8,22 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">Nome</th>
+                    <th scope="col">
+                        <span>Nome</span>
+                        <a class=" ms-2 btn btn-dark rounded-pill px-2 py-0"
+                            href="{{ route(
+                                'pantheons.index',
+                                array_merge(request()->query(), [
+                                    'order' => $order === 'asc' ? 'desc' : 'asc',
+                                ]),
+                            ) }}">
+                            @if ($order === 'asc')
+                                {{ '↑' }}
+                            @else
+                                {{ '↓' }}
+                            @endif
+                        </a>
+                    </th>
                     <th scope="col">Immagine</th>
                     <th scope="col">Azioni</th>
                 </tr>

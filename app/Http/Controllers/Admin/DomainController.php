@@ -12,10 +12,13 @@ class DomainController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $domains = Domain::all();
-        return view('domains.index', compact("domains"));
+        $order = $request->query('order', 'asc');
+        if (!in_array($order, ['asc', 'desc'])) $order = 'asc';
+
+        $domains = Domain::orderBy('name', $order)->get();
+        return view('domains.index', compact('domains', 'order'));
     }
 
     /**
