@@ -22,11 +22,11 @@ class GodController extends Controller
         if (!in_array($sort, $orderBy)) $sort = 'id';
         if (!in_array($order, ['asc', 'desc'])) $order = 'asc';
 
-        if($sort == "pantheon_id"){
-            $gods = God::with("pantheon")->get()->sortBy(function($god) {
+        if ($sort == "pantheon_id") {
+            $gods = God::with("pantheon")->get()->sortBy(function ($god) {
                 return $god->pantheon->name;
             }, SORT_NATURAL | SORT_FLAG_CASE, $order == "desc");
-        }else{
+        } else {
 
             $gods = God::orderBy($sort, $order)->get();
         }
@@ -58,12 +58,12 @@ class GodController extends Controller
 
 
         //controllo x immagine
-        if(array_key_exists("image", $data)){
-            $path = Storage::putFile('gods-thumb', $data["image"]);
-            $newGod->image = $path;
-        }else{
-            $newGod->image = "default.png";
+        if (array_key_exists("image", $data)) {
+            $path = Storage::putFile('gods-thumb', $data['image']);
+        } else {
+            $path = 'gods-thumb/default.svg';
         }
+        $newGod->image = $path;
 
         $newGod->save();
         if ($request->has("domains")) {
@@ -100,12 +100,12 @@ class GodController extends Controller
         $data = $request->all();
         $god->name = $data["name"];
         $god->title = $data["title"];
-        
+
         $god->description = $data["description"];
         $god->rank = $data["rank"];
         $god->pantheon_id = $data["pantheon_id"];
         //controllo x immagine
-        if(array_key_exists("image", $data)){
+        if (array_key_exists("image", $data)) {
             $path = Storage::putFile('gods-thumb', $data["image"]);
             $god->image = $path;
         }

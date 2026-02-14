@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
     @php
-        $imagePath = 'storage/gods-thumb/';
+        $imagePath = 'storage/';
         if (!file_exists(public_path($imagePath . $god->image)) || !is_file(public_path($imagePath . $god->image))) {
-            $god->image = 'default.png';
+            $god->image = 'gods-thumb/default.png';
         }
         $imagePath . $god->image;
     @endphp

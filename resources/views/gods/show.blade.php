@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
     @php
-        $imagePath = 'storage/gods-thumb/';
+        $imagePath = 'storage/';
         if (!file_exists(public_path($imagePath . $god->image)) || !is_file(public_path($imagePath . $god->image))) {
-            $god->image = 'default.png';
+            $god->image = 'gods-thumb/default.png';
         }
         $imagePath . $god->image;
     @endphp
@@ -21,23 +21,29 @@
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="card-img-top col">
-                        <img class="my-3 img-fluid" src="{{ asset($imagePath . $god->image) }}" alt="{{ $god->name }}">
+                    <div class="col-3">
+                        <div class="card-img-top">
+                            <img class="img-fluid" src="{{ asset($imagePath . $god->image) }}" alt="{{ $god->name }}">
+                        </div>
                     </div>
-                    <div class="col-9">
-                        <span class="d-block"><strong>Pantheon:</strong><a class="text-decoration-none text-dark"
-                                href="{{ route('pantheons.show', $god->pantheon) }}"> {{ $god->pantheon->name }}</a></span>
-                        <span class="d-block"><strong>Rango:</strong> {{ $god->rank }}</span>
-                        <span class="d-block"><strong>Domini:</strong>
-                            @foreach ($god->domains as $domain)
-                                <a href="{{ route('domains.show', $domain) }}"><i
-                                        class="{{ $domain->icon }} bg-secondary py-1"
-                                        style="color: {{ $domain->color }};"></i></a>
-                            @endforeach
-                        </span>
+                    <div class="col-6 mt-4">
+                        <p class="m-0">{{ $god->description }}</p>
                     </div>
+
                 </div>
-                <p>{{ $god->description }}</p>
+                <div class="row mt-2 ms-2">
+                    <span class="d-block"><strong>Pantheon:</strong><a class="text-decoration-none text-dark"
+                            href="{{ route('pantheons.show', $god->pantheon) }}"> {{ $god->pantheon->name }}</a></span>
+                    <span class="d-block"><strong>Rango:</strong> {{ $god->rank }}</span>
+                    <span class="d-block"><strong>Domini:</strong>
+                        @foreach ($god->domains as $domain)
+                            <a href="{{ route('domains.show', $domain) }}"><i
+                                    class="{{ $domain->icon }} bg-secondary py-1"
+                                    style="color: {{ $domain->color }};"></i></a>
+                        @endforeach
+                    </span>
+                </div>
+
             </div>
         </div>
     </div>
