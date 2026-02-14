@@ -83,7 +83,9 @@ class PantheonController extends Controller
 
         //controllo x immagine
         if (array_key_exists("image", $data)) {
-            Storage::delete($pantheon->image);
+            if ($pantheon->image !== 'pantheons-img/default.svg') {
+                Storage::delete($pantheon->image);
+            }
             $path = Storage::putFile('pantheons-img', $data["image"]);
             $pantheon->image = $path;
         }
@@ -99,7 +101,7 @@ class PantheonController extends Controller
         DB::table("gods")
             ->where("pantheon_id", $pantheon->id)
             ->delete();
-        if ($pantheon->image) {
+        if ($pantheon->image && $pantheon->image !== 'pantheons-img/default.svg') {
             Storage::delete($pantheon->image);
         }
         $pantheon->delete();

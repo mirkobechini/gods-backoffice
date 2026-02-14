@@ -2,7 +2,10 @@
 @section('content')
     @php
         $imagePath = 'storage/';
-        if (!file_exists(public_path($imagePath . $pantheon->image)) || !is_file(public_path($imagePath . $pantheon->image))) {
+        if (
+            !file_exists(public_path($imagePath . $pantheon->image)) ||
+            !is_file(public_path($imagePath . $pantheon->image))
+        ) {
             $pantheon->image = 'pantheons-img/default.png';
         }
         $imagePath . $pantheon->image;
@@ -27,7 +30,8 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="card-img-top col">
-                                <img class="my-3 img-fluid" src="{{ asset($imagePath . $pantheon->image) }}" alt="{{ $pantheon->name }}">
+                                <img class="my-3 img-fluid" src="{{ asset($imagePath . $pantheon->image) }}"
+                                    alt="{{ $pantheon->name }}">
                             </div>
                             <div class="col-9">
                                 <span class="d-block"><strong>Regione:</strong> {{ $pantheon->region }}</span>
@@ -44,13 +48,22 @@
                 <h2 class="">Dei</h2>
             </div>
         </div>
-        <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-4 g-2">
-            @foreach ($pantheon->gods as $god)
-                <div class="col">
-                    <x-gods-visual-card :god="$god" />
-                </div>
-            @endforeach
+        @if (!$pantheon->gods->isEmpty())
+            <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-4 g-2">
+                @foreach ($pantheon->gods as $god)
+                    <div class="col">
+                        <x-gods-visual-card :god="$god" />
+                    </div>
+                @endforeach
+            </div>
+        @else
+        <div class="row mt-4">
+            <div class="col">
+                <a href="{{ route('gods.create', ['pantheon_id' => $pantheon->id]) }}" class="btn btn-primary">Aggiungi un
+                    dio a questo pantheon</a>
+            </div>
         </div>
+        @endif
     </div>
 
     <x-delete-modal type="pantheon" :object="$pantheon" />

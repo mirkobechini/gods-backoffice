@@ -106,7 +106,9 @@ class GodController extends Controller
         $god->pantheon_id = $data["pantheon_id"];
         //controllo x immagine
         if (array_key_exists("image", $data)) {
-            Storage::delete($god->image);
+            if ($god->image !== 'gods-thumb/default.svg') {
+                Storage::delete($god->image);
+            }
             $path = Storage::putFile('gods-thumb', $data["image"]);
             $god->image = $path;
         }
@@ -125,9 +127,9 @@ class GodController extends Controller
     public function destroy(God $god)
     {
 
-    if($god->image){
-        Storage::delete($god->image);
-    }
+        if ($god->image  && $god->image !== 'gods-thumb/default.svg') {
+            Storage::delete($god->image);
+        }
         $god->delete();
         return redirect()->route("gods.index");
     }
