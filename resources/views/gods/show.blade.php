@@ -21,7 +21,7 @@
                         <span class="d-block"><strong>Rango:</strong> {{ $god->rank }}</span>
                         <span class="d-block"><strong>Domini:</strong> 
                             @foreach($god->domains as $domain)
-                            <i class="{{ $domain->icon }} bg-secondary py-1" style="color: {{ $domain->color }};"></i>
+                            <a href="{{ route('domains.show', $domain) }}"><i class="{{ $domain->icon }} bg-secondary py-1" style="color: {{ $domain->color }};"></i></a>
                             @endforeach
                         </span>
                     </div>

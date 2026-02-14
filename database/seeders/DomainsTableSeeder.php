@@ -72,7 +72,7 @@ class DomainsTableSeeder extends Seeder
                 "name" => "Saggezza",
                 "description" => "Il dominio della saggezza rappresenta la sfera di influenza dei dei legati alla saggezza, alla conoscenza e alla protezione. Questi dei sono spesso associati a concetti come la forza, la protezione, la saggezza e la giustizia. I dei della saggezza sono spesso invocati per chiedere protezione contro le forze oscure e per ottenere forza e saggezza, e sono considerati protettori della saggezza e della conoscenza.",
                 "color" => "#800080",
-                "icon" => "fa-solid fa-owl"
+                "icon" => "fa-solid fa-brain"
             ],
             [
                 "name" => "Giustizia",
