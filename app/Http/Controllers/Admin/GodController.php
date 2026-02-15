@@ -16,7 +16,7 @@ class GodController extends Controller
      */
     public function index(Request $request)
     {
-        $orderBy = ["id", "name", "pantheon_id"];
+        $orderBy = ["id", "name", "pantheon_id", "rank"];
         $sort = $request->query('sort', 'id');
         $order = $request->query('order', 'asc');
         if (!in_array($sort, $orderBy)) $sort = 'id';

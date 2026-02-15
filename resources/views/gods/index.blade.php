@@ -45,6 +45,23 @@
                                 @endif
                             </a>
                         </th>
+                        <th scope="col" class="text-center text-nowrap">
+                            <span>Rango</span>
+                            <a class=" ms-2 btn btn-dark rounded-pill px-2 py-0"
+                                href="{{ route(
+                                    'gods.index',
+                                    array_merge(request()->query(), [
+                                        'sort' => 'rank',
+                                        'order' => $sort === 'rank' && $order === 'asc' ? 'desc' : 'asc',
+                                    ]),
+                                ) }}">
+                                @if ($sort === 'rank')
+                                    {{ $order === 'asc' ? '↑' : '↓' }}
+                                @else
+                                    ↕
+                                @endif
+                            </a>
+                        </th>
                         <th scope="col" class="w-auto text-nowrap">Azioni</th>
                     </tr>
                 </thead>
@@ -63,7 +80,8 @@
                         <tr>
                             <td>{{ $god->name }}</td>
                             <td><img src="{{ asset($imagePath . $god->image) }}" alt="{{ $god->name }}" width="50"></td>
-                            <td>{{ $god->pantheon->name }}</td>
+                            <td><a class="text-decoration-none text-dark" href="{{ route('pantheons.show', $god->pantheon->id) }}">{{ $god->pantheon->name }}</a></td>
+                            <td class="text-center">{{ $god->rank }}</td>
                             <td class="text-nowrap">
                                 <a href="{{ route('gods.show', $god->id) }}" class="btn btn-primary">Visualizza dio</a>
                                 <a href="{{ route('gods.edit', $god->id) }}" class="btn btn-warning">Modifica</a>
