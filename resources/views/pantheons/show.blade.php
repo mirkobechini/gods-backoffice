@@ -20,10 +20,10 @@
                     <div class="card-header d-flex align-items-center justify-content-between">
                         <h1>{{ $pantheon->name }}</h1>
                         <div class="">
-                            <a class="btn btn-warning" href="{{ route('pantheons.edit', $pantheon) }}"><i
+                            <a class="btn btn-warning" href="{{ route('pantheons.edit', $pantheon) }}" aria-label="Modifica pantheon {{ $pantheon->name }}"><i
                                     class="fa-solid fa-pencil"></i></a>
                             <button type="button" data-bs-toggle="modal"
-                                data-bs-target="#confirmDeleteModal-{{ $pantheon->id }}" class="btn btn-danger"><i
+                                data-bs-target="#confirmDeleteModal-{{ $pantheon->id }}" class="btn btn-danger" aria-label="Elimina pantheon {{ $pantheon->name }}"><i
                                     class="fa-solid fa-trash"></i></button>
                         </div>
                     </div>
@@ -63,7 +63,7 @@
         @else
         <div class="row mt-4">
             <div class="col">
-                <a href="{{ route('gods.create', ['pantheon_id' => $pantheon->id]) }}" class="btn btn-primary">Aggiungi un
+                <a href="{{ route('gods.create', ['pantheon_id' => $pantheon->id]) }}" class="btn btn-primary" aria-label="Aggiungi un dio a questo pantheon">Aggiungi un
                     dio a questo pantheon</a>
             </div>
         </div>

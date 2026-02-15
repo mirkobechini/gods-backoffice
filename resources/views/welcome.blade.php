@@ -8,7 +8,7 @@
         </h1>
 
         <p class="col-md-8 fs-4">
-            Qui potrai gestire i tuoi dei, i loro domini e le loro mitologie.
+            Qui potrai gestire i tuoi dei, i loro domini e i vari pantheon
         </p>
 
         @if(Auth::check())

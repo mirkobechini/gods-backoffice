@@ -4,14 +4,14 @@
 
         <h1>Domini</h1>
         <p>Qui puoi gestire i tuoi domini.</p>
-        <a href="{{ route('domains.create') }}" class="btn btn-success">Crea nuovo dominio</a>
+        <a href="{{ route('domains.create') }}" class="btn btn-success" aria-label="Crea nuovo dominio">Crea nuovo dominio</a>
         <div class="table-responsive">
         <table class="table table-sm align-middle my-4 table-striped w-auto">
             <thead>
                 <tr>
                     <th scope="col" class="w-auto text-nowrap">
                         <span>Nome</span>
-                        <a class=" ms-2 btn btn-dark rounded-pill px-2 py-0"
+                        <a aria-label="Ordina per nome" class=" ms-2 btn btn-dark rounded-pill px-2 py-0"
                             href="{{ route(
                                 'domains.index',
                                 array_merge(request()->query(), [
@@ -35,11 +35,11 @@
                         <td>{{ $domain->name }}</td>
                         <td><i class="{{ $domain->icon }}" style="color: {{ ($domain->color == '#FFFFFF') ? '#000000' : $domain->color }};"></i></td>
                         <td class="text-nowrap">
-                            <a href="{{ route('domains.show', $domain->id) }}" class="btn btn-primary">Visualizza dominio</a>
-                            <a href="{{ route('domains.edit', $domain->id) }}" class="btn btn-warning">Modifica</a>
+                            <a href="{{ route('domains.show', $domain->id) }}" class="btn btn-primary" aria-label="Visualizza dominio {{ $domain->name }}">Visualizza dominio</a>
+                            <a href="{{ route('domains.edit', $domain->id) }}" class="btn btn-warning" aria-label="Modifica dominio {{ $domain->name }}">Modifica</a>
                             <button type="button" data-bs-toggle="modal"
                                 data-bs-target="#confirmDeleteModal-{{ $domain->id }}"
-                                class="btn btn-danger">Elimina</button>
+                                class="btn btn-danger" aria-label="Elimina dominio {{ $domain->name }}">Elimina</button>
                         </td>
                     </tr>
 

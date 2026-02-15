@@ -12,7 +12,7 @@
                     <tr>
                         <th scope="col" class="w-25 text-nowrap">
                             <span>Nome</span>
-                            <a class=" ms-2 btn btn-dark rounded-pill px-2 py-0"
+                            <a aria-label="Ordina per nome" class=" ms-2 btn btn-dark rounded-pill px-2 py-0"
                                 href="{{ route(
                                     'gods.index',
                                     array_merge(request()->query(), [
@@ -30,7 +30,7 @@
                         <th scope="col" class="w-auto text-nowrap">Immagine</th>
                         <th scope="col" class="w-auto text-nowrap">
                             <span>Pantheon</span>
-                            <a class=" ms-2 btn btn-dark rounded-pill px-2 py-0"
+                            <a aria-label="Ordina per pantheon" class=" ms-2 btn btn-dark rounded-pill px-2 py-0"
                                 href="{{ route(
                                     'gods.index',
                                     array_merge(request()->query(), [
@@ -47,7 +47,7 @@
                         </th>
                         <th scope="col" class="text-center text-nowrap">
                             <span>Rango</span>
-                            <a class=" ms-2 btn btn-dark rounded-pill px-2 py-0"
+                            <a aria-label="Ordina per rango" class=" ms-2 btn btn-dark rounded-pill px-2 py-0"
                                 href="{{ route(
                                     'gods.index',
                                     array_merge(request()->query(), [
@@ -83,11 +83,11 @@
                             <td><a class="text-decoration-none text-dark" href="{{ route('pantheons.show', $god->pantheon->id) }}">{{ $god->pantheon->name }}</a></td>
                             <td class="text-center">{{ $god->rank }}</td>
                             <td class="text-nowrap">
-                                <a href="{{ route('gods.show', $god->id) }}" class="btn btn-primary">Visualizza dio</a>
-                                <a href="{{ route('gods.edit', $god->id) }}" class="btn btn-warning">Modifica</a>
+                                <a href="{{ route('gods.show', $god->id) }}" class="btn btn-primary" aria-label="Visualizza dio {{ $god->name }}">Visualizza dio</a>
+                                <a href="{{ route('gods.edit', $god->id) }}" class="btn btn-warning" aria-label="Modifica dio {{ $god->name }}">Modifica</a>
                                 <button type="button" data-bs-toggle="modal"
                                     data-bs-target="#confirmDeleteModal-{{ $god->id }}"
-                                    class="btn btn-danger">Elimina</button>
+                                    class="btn btn-danger" aria-label="Elimina dio {{ $god->name }}">Elimina</button>
                             </td>
                         </tr>
 

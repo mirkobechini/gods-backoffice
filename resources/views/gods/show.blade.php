@@ -8,7 +8,7 @@
         $imagePath . $god->image;
     @endphp
     <div class="container py-4">
-        <a href="{{ route('gods.index') }}" class="btn btn-secondary mb-3">Torna alla lista dei dei</a>
+        <a href="{{ route('gods.index') }}" class="btn btn-secondary mb-3" aria-label="Vai alla lista degli dei">Torna alla lista degli dei</a>
 
         <div class="card">
             <div class="card-header d-flex align-items-center justify-content-between">
