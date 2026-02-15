@@ -63,15 +63,12 @@ Come entità principale ho scelto Dei messa in relazione 1 a molti con Pantheon 
 - [X] Pivot seed
 - [X] Users seed
 
-### UI 🔄
-#### Commons 🔄
+### UI ✅
+#### Commons ✅
 - [X] partials/Header
-- [] partials/Footer
-- [/] layouts/app
-- [] loginPage
+- [X] layouts/app
 - [X] welcomePage
-- [] signPage
-- [] errorPage
+
 
 #### Gods ✅
 - [X] index
