@@ -30,13 +30,22 @@
                 <h2 class="">Dei</h2>
             </div>
         </div>
-        <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-4 g-2">
-            @foreach ($domain->gods as $god)
-                <div class="col">
-                    <x-gods-visual-card :god="$god" />
-                </div>
-            @endforeach
+        @if (!$domain->gods->isEmpty())
+            <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-4 g-2">
+                @foreach ($domain->gods as $god)
+                    <div class="col">
+                        <x-gods-visual-card :god="$god" />
+                    </div>
+                @endforeach
+            </div>
+        @else
+        <div class="row mt-4">
+            <div class="col">
+                <a href="{{ route('gods.create', ['domain_id' => $domain->id]) }}" class="btn btn-primary">Aggiungi un
+                    dio a questo dominio</a>
+            </div>
         </div>
+        @endif
     </div>
     <x-delete-modal type="domain" :object="$domain" />
 @endsection

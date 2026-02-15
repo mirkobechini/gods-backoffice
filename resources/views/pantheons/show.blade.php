@@ -29,16 +29,20 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="card-img-top col">
-                                <img class="my-3 img-fluid" src="{{ asset($imagePath . $pantheon->image) }}"
+                            <div class="col-3">
+                                <div class="card-img-top ">
+                                    <img class="img-fluid" src="{{ asset($imagePath . $pantheon->image) }}"
                                     alt="{{ $pantheon->name }}">
+                                </div>
                             </div>
-                            <div class="col-9">
+                            <div class="col-6 mt-4">
+                                <p>{{ $pantheon->description }}</p>
+                            </div>
+                            <div class="row mt-2 ms-2">
                                 <span class="d-block"><strong>Regione:</strong> {{ $pantheon->region }}</span>
                                 <span class="d-block"><strong>Base:</strong> {{ $pantheon->home_base }}</span>
                             </div>
                         </div>
-                        <p>{{ $pantheon->description }}</p>
                     </div>
                 </div>
             </div>
