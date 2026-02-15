@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class GodController extends Controller
 {
     public function index(){
-        $gods = God::with('domains', 'pantheon')->get();
+        $gods = God::with('domains', 'pantheon')->orderBy('pantheon_id')->get();
         return response()->json([
             'success' => true,
             'data' => $gods
