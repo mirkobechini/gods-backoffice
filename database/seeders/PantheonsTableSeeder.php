@@ -32,7 +32,7 @@ class PantheonsTableSeeder extends Seeder
                 "name" => "Yamato",
                 "region" => "Giappone",
                 "home_base" => "Takama-ga-hara",
-                "image" => "pantheons-img/yamato.svg",
+                "image" => "pantheons-img/takama-ga-hara.png",
                 "description" => "Il pantheon giapponese, noto anche come pantheon shintoista, è un insieme di divinità adorate nella religione shintoista del Giappone. Questo pantheon è caratterizzato da una vasta gamma di divinità, ognuna con le proprie caratteristiche, poteri e storie. Le divinità giapponesi sono spesso associate a elementi naturali, come il sole, la luna, le montagne e i fiumi, nonché a concetti come la fertilità, la guerra e la saggezza."
             ],
             [
@@ -53,7 +53,7 @@ class PantheonsTableSeeder extends Seeder
                 "name" => "Burocrazia Celeste",
                 "region" => "Cina",
                 "home_base" => "Monte Kunlun",
-                "image" => "pantheons-img/cinese.svg",
+                "image" => "pantheons-img/burocrazia-celeste.jpg",
                 "description" => "Il pantheon cinese è uno dei più antichi e complessi nella storia della mitologia. È composto da una vasta gamma di divinità, ognuna con le proprie caratteristiche, poteri e storie. Il pantheon cinese è noto per la sua ricchezza e varietà, con divinità che rappresentano vari aspetti della vita umana, della natura e dell'aldilà."
             ]
 
