@@ -3,7 +3,8 @@
     <div class="container py-4">
 
         <h1>Crea nuovo pantheon</h1>
-        <form class="my-4 form-control" action="{{ route('pantheons.store') }}" method="POST" enctype="multipart/form-data">
+        <form id="createPantheonForm" class="my-4 form-control" action="{{ route('pantheons.store') }}" method="POST"
+            enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Nome</label>
@@ -26,8 +27,10 @@
                 <textarea class="form-control" id="description" name="description" rows="3"></textarea>
             </div>
             <div class="d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary py-2 px-4">Crea pantheon</button>
+                <button type="button" data-bs-toggle="modal" data-bs-target="#confirmSaveModal"
+                    class="btn btn-primary py-2 px-4" aria-label="Crea pantheon">Crea pantheon</button>
             </div>
         </form>
+        <x-saving-modal type="creazione" object="pantheon" formId="createPantheonForm" />
     </div>
 @endsection

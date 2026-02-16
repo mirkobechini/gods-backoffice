@@ -1,9 +1,14 @@
 @extends('layouts.app')
 @section('content')
     <div class="container py-4">
+        @if (session('error'))
+            <div class="alert alert-danger" role="alert">
+                {{ session('error') }}
+            </div>
+        @endif
 
         <h1>Crea nuovo dio</h1>
-        <form class="my-4 form-control" action="{{ route('gods.store') }}" method="POST" enctype="multipart/form-data">
+        <form id="createGodForm" class="my-4 form-control" action="{{ route('gods.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Nome</label>
@@ -49,8 +54,15 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary py-2 px-4">Crea dio</button>
+                <button type="button" data-bs-toggle="modal" data-bs-target="#confirmSaveModal"
+                    class="btn btn-primary py-2 px-4" aria-label="Crea dio">Crea dio</button>
             </div>
         </form>
+        <x-saving-modal type="creazione" object="dio" formId="createGodForm" />
     </div>
+
+
+
+
+    
 @endsection

@@ -10,7 +10,7 @@
     <div class="container py-4">
 
         <h1>Modifica dio</h1>
-        <form class="my-4 form-control" action="{{ route('gods.update', $god->id) }}" method="POST"
+        <form id="editGodForm" class="my-4 form-control" action="{{ route('gods.update', $god->id) }}" method="POST"
             enctype="multipart/form-data">
             @csrf
             @method('PUT')
@@ -63,8 +63,10 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary py-2 px-4">Aggiorna dio</button>
+                <button type="button" data-bs-toggle="modal" data-bs-target="#confirmSaveModal"
+                 class="btn btn-primary py-2 px-4" aria-label="Aggiorna dio">Aggiorna dio</button>
             </div>
         </form>
+         <x-saving-modal type="modifica" object="dio" formId="editGodForm" />
     </div>
 @endsection

@@ -13,7 +13,7 @@
     <div class="container py-4">
 
         <h1>Modifica pantheon</h1>
-        <form class="my-4 form-control" action="{{ route('pantheons.update', $pantheon) }}" method="POST" enctype="multipart/form-data">
+        <form id="editPantheonForm" class="my-4 form-control" action="{{ route('pantheons.update', $pantheon) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="mb-3">
@@ -43,8 +43,10 @@
                 <textarea class="form-control" id="description" name="description" rows="3">{{ $pantheon->description }}</textarea>
             </div>
             <div class="d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary py-2 px-4">Aggiorna pantheon</button>
+                <button type="button" data-bs-toggle="modal" data-bs-target="#confirmSaveModal"
+                    class="btn btn-primary py-2 px-4" aria-label="Aggiorna pantheon">Aggiorna pantheon</button>
             </div>
         </form>
+        <x-saving-modal type="modifica" object="pantheon" formId="editPantheonForm" />
     </div>
 @endsection
