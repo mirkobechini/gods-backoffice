@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Pantheon;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
@@ -94,7 +95,20 @@ class PantheonController extends Controller
      */
     public function update(Request $request, Pantheon $pantheon)
     {
-        $data = $request->all();
+        $data = $request->validate(
+            [
+                'name' => ['required', 'string', 'max:255', Rule::unique('pantheons', 'name')->ignore($pantheon->id)],
+                'region' => ['required', 'string', 'max:255', Rule::unique('pantheons', 'region')->ignore($pantheon->id)],
+                'home_base' => ['required', 'string', 'max:255', Rule::unique('pantheons', 'home_base')->ignore($pantheon->id)],
+                'description' => 'nullable|string',
+                'image' => 'nullable|image',
+            ],
+            [
+                'name.unique' => 'Esiste già un pantheon con questo nome.',
+                'region.unique' => 'Esiste già un pantheon con questa regione.',
+                'home_base.unique' => 'Esiste già un pantheon con questa base.',
+            ]
+        );
         $pantheon->name = $data["name"];
         $pantheon->region = $data["region"];
         $pantheon->home_base = $data["home_base"];

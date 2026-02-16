@@ -8,6 +8,7 @@ use App\Models\God;
 use App\Models\Pantheon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
 
 class GodController extends Controller
 {
@@ -107,7 +108,19 @@ class GodController extends Controller
      */
     public function update(Request $request, God $god)
     {
-        $data = $request->all();
+        $data = $request->validate(
+            [
+                'name' => ['required', 'string', 'max:255', Rule::unique('gods', 'name')->ignore($god->id)],
+                'title' => ['required', 'string', 'max:255'],
+                'description' => 'nullable|string',
+                'rank' => 'required|integer',
+                'pantheon_id' => 'required|exists:pantheons,id',
+                'image' => 'nullable|image',
+            ],
+            [
+                'name.unique' => 'Esiste già un dio con questo nome.',
+            ]
+        );
         $god->name = $data["name"];
         $god->title = $data["title"];
 

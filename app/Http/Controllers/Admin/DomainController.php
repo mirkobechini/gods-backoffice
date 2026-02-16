@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Domain;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 
 class DomainController extends Controller
 {
@@ -75,7 +76,17 @@ class DomainController extends Controller
      */
     public function update(Request $request, Domain $domain)
     {
-        $data = $request->all();
+        $data = $request->validate(
+            [
+                'name' => ['required', 'string', 'max:255', Rule::unique('domains', 'name')->ignore($domain->id)],
+                'icon' => ['required', 'string', 'max:255'],
+                'color' => ['required', 'string', 'max:255'],
+                'description' => 'nullable|string',
+            ],
+            [
+                'name.unique' => 'Esiste già un dominio con questo nome.',
+            ]
+        );
         $domain->name = $data["name"];
         $domain->icon = $data["icon"];
         $domain->color = $data["color"];

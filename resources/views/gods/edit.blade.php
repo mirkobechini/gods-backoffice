@@ -8,6 +8,11 @@
         $imagePath . $god->image;
     @endphp
     <div class="container py-4">
+        @if ($errors->any())
+            <div class="alert alert-danger" role="alert">
+                Controlla i campi del form.
+            </div>
+        @endif
 
         <h1>Modifica dio</h1>
         <form id="editGodForm" class="my-4 form-control" action="{{ route('gods.update', $god->id) }}" method="POST"
@@ -16,35 +21,47 @@
             @method('PUT')
             <div class="mb-3">
                 <label for="name" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="name" name="name" value="{{ $god->name }}"
-                    required>
+                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name', $god->name) }}" required>
+                @error('name')  
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="title" class="form-label">Titolo</label>
-                <input type="text" class="form-control" id="title" name="title" value="{{ $god->title }}"
-                    required>
+                <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('title', $god->title) }}" required>
+                @error('title')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="image" class="form-label">Immagine</label>
                 <img class="my-3 ms-3 img-fluid" style="width:30px" src="{{ asset($imagePath . $god->image) }}"
                     alt="{{ $god->name }}">
 
-                <input type="file" class="form-control" id="image" name="image" value="{{ $god->image }}">
+                <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" value="{{ old('image', $god->image) }}">
+                @error('image')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="rank" class="form-label">Rango</label>
-                <input type="number" class="form-control" id="rank" name="rank" value="{{ $god->rank }}">
+                <input type="number" class="form-control @error('rank') is-invalid @enderror" id="rank" name="rank" value="{{ old('rank', $god->rank) }}">
+                @error('rank')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Descrizione</label>
-                <textarea class="form-control" id="description" name="description" rows="3">{{ $god->description }}</textarea>
+                <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" rows="3">{{ old('description', $god->description) }}</textarea>
+                @error('description')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="pantheon_id" class="form-label">Pantheon</label>
                 <select name="pantheon_id" id="pantheon_id" class="form-select">
                     @foreach ($pantheons as $pantheon)
-                        <option value="{{ $pantheon->id }}" {{ $god->pantheon_id == $pantheon->id ? 'selected' : '' }}>
-                            {{ $pantheon->name }}</option>
+                        <option value="{{ $pantheon->id }}" @selected(old('pantheon_id', $god->pantheon_id) == $pantheon->id)>{{ $pantheon->name }}</option>
                     @endforeach
                 </select>
             </div>
