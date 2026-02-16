@@ -34,7 +34,17 @@ class DomainController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        $data = $request->validate(
+            [
+                'name' => 'required|string|max:255|unique:domains,name',
+                'icon' => 'string|max:255',
+                'color' => 'required|string|max:255',
+                'description' => 'nullable|string',
+            ],
+            [
+                'name.unique' => 'Esiste già un dominio con questo nome.'
+            ]
+        );
         $newDomain = new Domain();
         $newDomain->name = $data["name"];
         $newDomain->icon = $data["icon"];

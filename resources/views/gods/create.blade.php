@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
     <div class="container py-4">
-        @if (session('error'))
+        @if ($errors->any())
             <div class="alert alert-danger" role="alert">
-                {{ session('error') }}
+                Controlla i campi del form.
             </div>
         @endif
 
@@ -12,31 +12,49 @@
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="name" name="name" required>
+                <input type="text" class="form-control  @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}" required>
+                @error('name')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="title" class="form-label">Titolo</label>
-                <input type="text" class="form-control" id="title" name="title" required>
+                <input type="text" class="form-control  @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('title') }}" required>
+                @error('title')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="image" class="form-label">Immagine</label>
-                <input type="file" class="form-control" id="image" name="image">
+                <input type="file" class="form-control  @error('image') is-invalid @enderror" id="image" name="image">
+                @error('image')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="rank" class="form-label">Rango</label>
-                <input type="number" class="form-control" id="rank" name="rank" value="1">
+                <input type="number" class="form-control  @error('rank') is-invalid @enderror" id="rank" name="rank" value="{{ old('rank', 1) }}">
+                @error('rank')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Descrizione</label>
-                <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                <textarea class="form-control  @error('description') is-invalid @enderror" id="description" name="description" rows="3">{{ old('description') }}</textarea>
+                @error('description')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="pantheon_id" class="form-label">Pantheon</label>
-                <select name="pantheon_id" id="pantheon_id" class="form-select">
+                <select name="pantheon_id" id="pantheon_id" class="form-select  @error('pantheon_id') is-invalid @enderror" required>
                     @foreach ($pantheons as $pantheon)
-                        <option value="{{ $pantheon->id }}">{{ $pantheon->name }}</option>
+                        <option value="{{ $pantheon->id }}" @selected(old('pantheon_id') == $pantheon->id)>{{ $pantheon->name }}</option>
                     @endforeach
                 </select>
+                @error('pantheon_id')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="domain_id" class="form-label">Dominio</label>
@@ -44,7 +62,7 @@
                     @foreach ($domains as $domain)
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="domains[]" value="{{ $domain->id }}"
-                                id="domain-{{ $domain->id }}">
+                                id="domain-{{ $domain->id }}" @checked(in_array((string) $domain->id, array_map('strval', old('domains', []))))>
                             <label class="form-check-label" for="domain-{{ $domain->id }}">
                                 <i class="{{ $domain->icon }} bg-secondary py-1" style="color: {{ $domain->color }};"></i>
                                 {{ $domain->name }}
@@ -54,11 +72,9 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center">
-                <button type="button" data-bs-toggle="modal" data-bs-target="#confirmSaveModal"
-                    class="btn btn-primary py-2 px-4" aria-label="Crea dio">Crea dio</button>
+                <button type="submit" class="btn btn-primary py-2 px-4" aria-label="Crea dio">Crea dio</button>
             </div>
         </form>
-        <x-saving-modal type="creazione" object="dio" formId="createGodForm" />
     </div>
 
 

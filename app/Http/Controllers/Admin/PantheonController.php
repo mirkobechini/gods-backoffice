@@ -36,7 +36,21 @@ class PantheonController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        $data = $request->validate(
+            [
+                'name' => 'required|string|max:255|unique:pantheons,name',
+                'region' => 'required|string|max:255|unique:pantheons,region',
+                'home_base' => 'required|string|max:255|unique:pantheons,home_base',
+                'description' => 'nullable|string',
+                'image' => 'nullable|image',
+            ],
+            [
+                'name.unique' => 'Esiste già un pantheon con questo nome.',
+                'region.unique' => 'Esiste già un pantheon con questa regione.',
+                'home_base.unique' => 'Esiste già un pantheon con questa base.',
+            ]
+        );
+
         $newPantheon = new Pantheon();
         $newPantheon->name = $data["name"];
         $newPantheon->region = $data["region"];
@@ -51,6 +65,11 @@ class PantheonController extends Controller
         }
         $newPantheon->image = $path;
         $newPantheon->save();
+        if ($request->has("domains")) {
+            $newPantheon->domains()->sync($data["domains"]);
+        } else {
+            $newPantheon->domains()->detach();
+        }
         return redirect()->route("pantheons.show", $newPantheon);
     }
 

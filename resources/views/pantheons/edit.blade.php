@@ -43,10 +43,8 @@
                 <textarea class="form-control" id="description" name="description" rows="3">{{ $pantheon->description }}</textarea>
             </div>
             <div class="d-flex justify-content-center">
-                <button type="button" data-bs-toggle="modal" data-bs-target="#confirmSaveModal"
-                    class="btn btn-primary py-2 px-4" aria-label="Aggiorna pantheon">Aggiorna pantheon</button>
+                <button type="submit" class="btn btn-primary py-2 px-4" aria-label="Aggiorna pantheon">Aggiorna pantheon</button>
             </div>
         </form>
-        <x-saving-modal type="modifica" object="pantheon" formId="editPantheonForm" />
     </div>
 @endsection

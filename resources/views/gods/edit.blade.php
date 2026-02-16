@@ -16,7 +16,8 @@
             @method('PUT')
             <div class="mb-3">
                 <label for="name" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="name" name="name" value="{{ $god->name }}" required>
+                <input type="text" class="form-control" id="name" name="name" value="{{ $god->name }}"
+                    required>
             </div>
             <div class="mb-3">
                 <label for="title" class="form-label">Titolo</label>
@@ -25,7 +26,8 @@
             </div>
             <div class="mb-3">
                 <label for="image" class="form-label">Immagine</label>
-                <img class="my-3 ms-3 img-fluid" style="width:30px" src="{{ asset($imagePath . $god->image) }}" alt="{{ $god->name }}">
+                <img class="my-3 ms-3 img-fluid" style="width:30px" src="{{ asset($imagePath . $god->image) }}"
+                    alt="{{ $god->name }}">
 
                 <input type="file" class="form-control" id="image" name="image" value="{{ $god->image }}">
             </div>
@@ -63,10 +65,8 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center">
-                <button type="button" data-bs-toggle="modal" data-bs-target="#confirmSaveModal"
-                 class="btn btn-primary py-2 px-4" aria-label="Aggiorna dio">Aggiorna dio</button>
+                <button type="submit" class="btn btn-primary py-2 px-4" aria-label="Aggiorna dio">Aggiorna dio</button>
             </div>
         </form>
-         <x-saving-modal type="modifica" object="dio" formId="editGodForm" />
     </div>
 @endsection

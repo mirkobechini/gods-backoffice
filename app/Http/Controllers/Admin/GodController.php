@@ -48,7 +48,21 @@ class GodController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+
+
+        $data = $request->validate(
+            [
+                'name' => 'required|string|max:255|unique:gods,name',
+                'title' => 'required|string|max:255',
+                'description' => 'nullable|string',
+                'rank' => 'required|integer',
+                'pantheon_id' => 'required|exists:pantheons,id',
+                'image' => 'nullable|image',
+            ],
+            [
+                'name.unique' => 'Esiste già un dio con questo nome.'
+            ]
+        );
         $newGod = new God();
         $newGod->name = $data["name"];
         $newGod->title = $data["title"];
@@ -66,12 +80,8 @@ class GodController extends Controller
         $newGod->image = $path;
 
         $newGod->save();
-        if ($request->has("domains")) {
-            $newGod->domains()->sync($data["domains"]);
-        } else {
-            $newGod->domains()->detach();
-        }
         return redirect()->route("gods.show", $newGod);
+
     }
 
     /**

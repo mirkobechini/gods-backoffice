@@ -23,10 +23,8 @@
                 <textarea class="form-control" id="description" name="description" rows="3">{{ $domain->description }}</textarea>
             </div>
             <div class="d-flex justify-content-center">
-                <button type="button" data-bs-toggle="modal" data-bs-target="#confirmSaveModal"
-                 class="btn btn-primary py-2 px-4" aria-label="Aggiorna dominio">Aggiorna dominio</button>
+                <button type="submit" class="btn btn-primary py-2 px-4" aria-label="Aggiorna dominio">Aggiorna dominio</button>
             </div>
         </form>
-        <x-saving-modal type="modifica" object="dominio" formId="editDomainForm" />
     </div>
 @endsection
