@@ -59,6 +59,8 @@ class GodController extends Controller
                 'rank' => 'required|integer',
                 'pantheon_id' => 'required|exists:pantheons,id',
                 'image' => 'nullable|image',
+                'domains' => 'nullable|array',
+                'domains.*' => 'exists:domains,id',
             ],
             [
                 'name.unique' => 'Esiste già un dio con questo nome.'
@@ -81,6 +83,9 @@ class GodController extends Controller
         $newGod->image = $path;
 
         $newGod->save();
+        if (array_key_exists('domains', $data)) {
+            $newGod->domains()->sync($data['domains']);
+        }
         return redirect()->route("gods.show", $newGod);
 
     }
@@ -116,6 +121,8 @@ class GodController extends Controller
                 'rank' => 'required|integer',
                 'pantheon_id' => 'required|exists:pantheons,id',
                 'image' => 'nullable|image',
+                'domains' => 'nullable|array',
+                'domains.*' => 'exists:domains,id',
             ],
             [
                 'name.unique' => 'Esiste già un dio con questo nome.',
@@ -136,8 +143,8 @@ class GodController extends Controller
             $god->image = $path;
         }
         $god->update();
-        if ($request->has("domains")) {
-            $god->domains()->sync($data["domains"]);
+        if (array_key_exists('domains', $data)) {
+            $god->domains()->sync($data['domains']);
         } else {
             $god->domains()->detach();
         }
