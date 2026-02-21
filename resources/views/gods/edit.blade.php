@@ -35,7 +35,7 @@
             </div>
             <div class="mb-3">
                 <label for="image" class="form-label">Immagine</label>
-                <img class="my-3 ms-3 img-fluid" style="width:30px" src="{{ asset($imagePath . $god->image) }}"
+                <img class="my-3 ms-3 img-fluid zoom-img" style="width:30px" src="{{ asset($imagePath . $god->image) }}"
                     alt="{{ $god->name }}">
 
                 <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" value="{{ old('image', $god->image) }}">
