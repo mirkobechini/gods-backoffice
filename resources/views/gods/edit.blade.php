@@ -68,11 +68,14 @@
             <div class="mb-3">
                 <label for="domain_id" class="form-label">Dominio</label>
                 <div class="form-control d-flex flex-wrap gap-3">
+                    @php
+                        $selectedDomains = old('domains', $god->domains->pluck('id')->toArray());
+                    @endphp
                     @foreach ($domains as $domain)
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="domains[]" value="{{ $domain->id }}"
                                 id="domain-{{ $domain->id }}"
-                                {{ $god->domains->contains($domain->id) ? 'checked' : '' }}>
+                                @checked(in_array((int) $domain->id, array_map('intval', $selectedDomains), true))>
                             <label class="form-check-label" for="domain-{{ $domain->id }}">
                                 <i class="{{ $domain->icon }} bg-secondary py-1" style="color: {{ $domain->color }};"></i>
                                 {{ $domain->name }}

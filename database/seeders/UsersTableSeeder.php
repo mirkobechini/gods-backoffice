@@ -17,7 +17,7 @@ class UsersTableSeeder extends Seeder
         $user->name = 'Mirko';
         $user->email = 'mirko@example.com';
         $user->password = bcrypt('password');
-        $user->getRememberToken();
+        //$user->remember_token = Str::random(10);
         $user->save();
     }
 }
