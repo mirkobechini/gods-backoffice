@@ -5,7 +5,7 @@
         <h1>Domini</h1>
         <p>Qui puoi gestire i tuoi domini.</p>
         <a href="{{ route('domains.create') }}" class="btn btn-success" aria-label="Crea nuovo dominio">Crea nuovo dominio</a>
-        <div class="table-responsive">
+        <div class="table-responsive zoom-overflow-visible">
         <table class="table table-sm align-middle my-4 table-striped w-auto">
             <thead>
                 <tr>
@@ -33,7 +33,7 @@
                 @foreach ($domains as $domain)
                     <tr >
                         <td>{{ $domain->name }}</td>
-                        <td><i class="{{ $domain->icon }}" style="color: {{ ($domain->color == '#FFFFFF') ? '#000000' : $domain->color }};"></i></td>
+                        <td><i class="{{ $domain->icon }} zoom-icon" style="color: {{ ($domain->color == '#FFFFFF') ? '#000000' : $domain->color }};"></i></td>
                         <td class="text-nowrap">
                             <a href="{{ route('domains.show', $domain->id) }}" class="btn btn-primary" aria-label="Visualizza dominio {{ $domain->name }}">Visualizza dominio</a>
                             <a href="{{ route('domains.edit', $domain->id) }}" class="btn btn-warning" aria-label="Modifica dominio {{ $domain->name }}">Modifica</a>

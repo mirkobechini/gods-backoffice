@@ -5,7 +5,7 @@
         <h1>Pantheon</h1>
         <p>Qui puoi gestire i tuoi pantheon.</p>
         <a href="{{ route('pantheons.create') }}" class="btn btn-success" aria-label="Crea nuovo pantheon">Crea nuovo pantheon</a>
-        <div class="table-responsive">
+        <div class="table-responsive zoom-overflow-visible">
 
             <table class="table table-sm align-middle my-4 table-striped w-auto">
                 <thead>
@@ -44,7 +44,7 @@
                         @endphp
                         <tr>
                             <td>{{ $pantheon->name }}</td>
-                            <td><img src="{{ asset($imagePath . $pantheon->image) }}" alt="{{ $pantheon->name }}" width="50"></td>
+                            <td><img class="zoom-img" src="{{ asset($imagePath . $pantheon->image) }}" alt="{{ $pantheon->name }}" width="50"></td>
                             <td class="text-nowrap">
                                 <a href="{{ route('pantheons.show', $pantheon->id) }}" class="btn btn-primary" aria-label="Visualizza pantheon {{ $pantheon->name }}">Visualizza
                                     pantheon</a>

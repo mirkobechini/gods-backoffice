@@ -5,7 +5,7 @@
         <h1>Dei</h1>
         <p>Qui puoi gestire i tuoi dei.</p>
         <a href="{{ route('gods.create') }}" class="btn btn-success">Crea nuovo dio</a>
-        <div class="table-responsive">
+        <div class="table-responsive zoom-overflow-visible">
 
             <table class="table table-sm align-middle my-4 table-striped ">
                 <thead>
@@ -79,7 +79,7 @@
 
                         <tr>
                             <td>{{ $god->name }}</td>
-                            <td><img src="{{ asset($imagePath . $god->image) }}" alt="{{ $god->name }}" width="50"></td>
+                            <td><img class="zoom-img" src="{{ asset($imagePath . $god->image) }}" alt="{{ $god->name }}" width="50"></td>
                             <td><a class="text-decoration-none text-dark" href="{{ route('pantheons.show', $god->pantheon->id) }}">{{ $god->pantheon->name }}</a></td>
                             <td class="text-center">{{ $god->rank }}</td>
                             <td class="text-nowrap">
