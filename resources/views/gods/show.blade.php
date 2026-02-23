@@ -32,7 +32,7 @@
 
                 </div>
                 <div class="row mt-2 ms-2">
-                    <span class="d-block"><strong>Pantheon:</strong><a class="text-decoration-none text-dark zoom-hover-text"
+                    <span class="d-block"><strong>Pantheon: </strong><a class="text-decoration-none text-dark zoom-hover-text"
                             href="{{ route('pantheons.show', $god->pantheon) }}"> {{ $god->pantheon->name }}</a></span>
                     <span class="d-block"><strong>Rango:</strong> {{ $god->rank }}</span>
                     <span class="d-block"><strong>Domini:</strong>
