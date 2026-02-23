@@ -14,8 +14,8 @@
 
     <div class="card h-100" style="width: 100%">
 
-        <div class="card-img-top align-self-middle">
-            <img class="img-fluid" src="{{ asset($imagePath . $god->image) }}" alt="{{ $god->name }}">
+        <div class="card-img-top align-self-middle" style="aspect-ratio: 1 / 1; overflow: hidden;">
+            <img class="img-fluid zoom-hover" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" src="{{ asset($imagePath . $god->image) }}" alt="{{ $god->name }}">
         </div>
 
         <div class="card-body">
@@ -23,7 +23,7 @@
                 <span><strong>{{ $god->name }}</strong> - {{ $god->title }}</span>
                 <div class="mt-2">
                     @foreach ($god->domains as $domain)
-                        <a href="{{ route('domains.show', $domain) }}"><i class="{{ $domain->icon }} bg-secondary py-1"
+                        <a href="{{ route('domains.show', $domain) }}"><i class="{{ $domain->icon }} bg-secondary py-1 zoom-hover rounded"
                                 style="color: {{ $domain->color }};"></i></a>
                     @endforeach
                     </span>

@@ -32,13 +32,13 @@
 
                 </div>
                 <div class="row mt-2 ms-2">
-                    <span class="d-block"><strong>Pantheon:</strong><a class="text-decoration-none text-dark"
+                    <span class="d-block"><strong>Pantheon:</strong><a class="text-decoration-none text-dark zoom-hover-text"
                             href="{{ route('pantheons.show', $god->pantheon) }}"> {{ $god->pantheon->name }}</a></span>
                     <span class="d-block"><strong>Rango:</strong> {{ $god->rank }}</span>
                     <span class="d-block"><strong>Domini:</strong>
                         @foreach ($god->domains as $domain)
                             <a href="{{ route('domains.show', $domain) }}"><i
-                                    class="{{ $domain->icon }} bg-secondary py-1"
+                                    class="{{ $domain->icon }} bg-secondary py-1 zoom-hover rounded"
                                     style="color: {{ $domain->color }};"></i></a>
                         @endforeach
                     </span>

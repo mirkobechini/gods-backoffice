@@ -10,7 +10,7 @@
   }
 }
 
-/* Zoom immagini */
+/* Zoom miniature */
 .zoom-img, .zoom-icon {
   display: inline-block;
   transition: transform 0.25s ease;
@@ -21,4 +21,22 @@
   transform: scale(5.6);
   position: relative;
   z-index: 10;
+}
+
+/* zoom clickable*/
+.zoom-hover, .zoom-hover-text{
+    transition: transform 0.2s ease-in-out;
+}
+
+.zoom-hover:hover{
+    transform: scale(1.1);
+}
+
+.zoom-hover-text:hover{
+    transform: scale(1.06) translateX(1px);
+}
+
+.zoom-hover-text{
+    display: inline-block;
+    transform-origin: left center;
 }
