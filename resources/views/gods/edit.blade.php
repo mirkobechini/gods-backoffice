@@ -77,7 +77,7 @@
                                 id="domain-{{ $domain->id }}"
                                 @checked(in_array((int) $domain->id, array_map('intval', $selectedDomains), true))>
                             <label class="form-check-label" for="domain-{{ $domain->id }}">
-                                <i class="{{ $domain->icon }} bg-secondary py-1" style="color: {{ $domain->color }};"></i>
+                                <i class="{{ $domain->icon }} domain-badge-icon" style="color: {{ $domain->color }};"></i>
                                 {{ $domain->name }}
                             </label>
                         </div>

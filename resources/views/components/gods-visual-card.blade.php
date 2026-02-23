@@ -23,7 +23,7 @@
                 <span><strong>{{ $god->name }}</strong> - {{ $god->title }}</span>
                 <div class="mt-2">
                     @foreach ($god->domains as $domain)
-                        <a href="{{ route('domains.show', $domain) }}"><i class="{{ $domain->icon }} bg-secondary py-1 zoom-hover rounded"
+                        <a href="{{ route('domains.show', $domain) }}"><i class="{{ $domain->icon }} zoom-hover domain-badge-icon"
                                 style="color: {{ $domain->color }};"></i></a>
                     @endforeach
                     </span>

@@ -38,7 +38,7 @@
                     <span class="d-block"><strong>Domini:</strong>
                         @foreach ($god->domains as $domain)
                             <a href="{{ route('domains.show', $domain) }}"><i
-                                    class="{{ $domain->icon }} bg-secondary py-1 zoom-hover rounded"
+                                    class="{{ $domain->icon }} zoom-hover domain-badge-icon"
                                     style="color: {{ $domain->color }};"></i></a>
                         @endforeach
                     </span>

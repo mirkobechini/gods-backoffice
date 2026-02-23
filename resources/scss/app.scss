@@ -40,3 +40,14 @@
     display: inline-block;
     transform-origin: left center;
 }
+
+/* Badge dei domini contrasto*/
+.domain-badge-icon {
+  display: inline-block;
+  padding: 0.25rem 0;
+  border-radius: 0.25rem;
+  background-color: var(--bs-light);
+  border: 1px solid var(--bs-secondary-border-subtle);
+  text-shadow: 0 0 1px rgba(0, 0, 0, .85), 0 0 2px rgba(0, 0, 0, .45);
+  -webkit-text-stroke: .35px rgba(0, 0, 0, .45);
+}

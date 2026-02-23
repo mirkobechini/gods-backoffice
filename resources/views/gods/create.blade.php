@@ -64,7 +64,7 @@
                             <input class="form-check-input" type="checkbox" name="domains[]" value="{{ $domain->id }}"
                                 id="domain-{{ $domain->id }}" @checked(in_array((string) $domain->id, array_map('strval', old('domains', []))))>
                             <label class="form-check-label" for="domain-{{ $domain->id }}">
-                                <i class="{{ $domain->icon }} bg-secondary py-1" style="color: {{ $domain->color }};"></i>
+                                <i class="{{ $domain->icon }} domain-badge-icon" style="color: {{ $domain->color }};"></i>
                                 {{ $domain->name }}
                             </label>
                         </div>
