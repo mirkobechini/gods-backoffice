@@ -66,11 +66,6 @@ class PantheonController extends Controller
         }
         $newPantheon->image = $path;
         $newPantheon->save();
-        if ($request->has("domains")) {
-            $newPantheon->domains()->sync($data["domains"]);
-        } else {
-            $newPantheon->domains()->detach();
-        }
         return redirect()->route("pantheons.show", $newPantheon);
     }
 
