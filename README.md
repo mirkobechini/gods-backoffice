@@ -1,4 +1,5 @@
 # Progetto Backoffice
+![Anteprima tabella dei](gods-preview.png)
 Questo è il backoffice del progetto richiesto per l'esame di Boolean.
 Come entità principale ho scelto Dei messa in relazione 1 a molti con Pantheon e molti a molti con Domini.
 
