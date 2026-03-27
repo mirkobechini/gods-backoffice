@@ -8,7 +8,6 @@
 
 ![Laravel](https://img.shields.io/badge/Laravel-11-red?logo=laravel&label=Laravel)
 ![Licenza](https://img.shields.io/badge/Licenza-MIT-blue?label=Licenza)
-![Dipendenze PHP](https://img.shields.io/librariesio/release/packagist/laravel/laravel)
 
 ---
 
