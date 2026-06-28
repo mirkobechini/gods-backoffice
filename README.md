@@ -7,7 +7,6 @@
 
 
 ![Laravel](https://img.shields.io/badge/Laravel-11-red?logo=laravel&label=Laravel)
-![Licenza](https://img.shields.io/badge/Licenza-MIT-blue?label=Licenza)
 
 ---
 
@@ -129,25 +128,6 @@ L'architettura del database segue le best practice Laravel:
 
 - [x] Rilascio versione alpha
 - [x] Integrazione API esterna
-
----
-
-## 🤝 Contribuire
-
-Le contribuzioni migliorano il progetto. Per contribuire:
-
-1. Fai fork del repository
-2. Crea un branch: `git checkout -b feature/NomeFeature`
-3. Esegui commit: `git commit -m "Add NomeFeature"`
-4. Fai push del branch: `git push origin feature/NomeFeature`
-5. Apri una Pull Request
-
----
-
-
-## 📄 Licenza
-
-Distribuito sotto licenza MIT. Vedi il file `LICENSE` per i dettagli.
 
 ---
 
